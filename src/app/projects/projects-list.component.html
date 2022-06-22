@@ -1,10 +1,11 @@
 <h2>Projetos</h2>
 
-<div class="form-group row">
+<div class="form-group row justify-content-around">
     <label class="col-sm-2 col-form-label"><h5>Procurar Projeto:</h5></label>
-    <div class="col-sm-10 row aling-items-center">
+    <div class="col-sm-4 row aling-items-center mr-2">
         <input [(ngModel)]="filter" class="form-control">
     </div>
+    <a [routerLink]="['/projects/new']" class="btn btn-dark col-sm-4">Cadastrar um projeto</a>
 </div>
 
 <table class="table table-striped table-bordered border-dark table-hover">
@@ -22,7 +23,12 @@
             <td>{{ project.name  }}</td>
             <td>{{ project.teams }}</td>
             <td>{{ project.tasks }}</td>
+            <td>
+            <a [routerLink]="['/projects/info', project.id]" class="btn btn-dark mx-2" style="background-color: grey;">Informações</a>
+            <button (click)="deleteById(project.id)" class="btn btn-dark">Delete</button>
+            </td>
         </tr>
     </tbody>
 
 </table>
+

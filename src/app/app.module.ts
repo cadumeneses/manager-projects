@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ProjectsModule } from "./projects/projects.module";
+import { TeamsModule } from './teams/teams.module';
 
 @NgModule({
   declarations: [
@@ -16,6 +17,7 @@ import { ProjectsModule } from "./projects/projects.module";
     BrowserModule,
     AppRoutingModule,
     ProjectsModule,
+    TeamsModule,
     CoreModule,
     HttpClientModule,
     RouterModule.forRoot([

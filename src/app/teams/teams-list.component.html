@@ -1,0 +1,29 @@
+<h2>Equipes</h2>
+
+<div class="form-group row justify-content-around">
+    <label class="col-sm-2 col-form-label"><h5>Procurar Equipe:</h5></label>
+    <div class="col-sm-4 row aling-items-center mr-2">
+        <input [(ngModel)]="filter" class="form-control" placeholder="Digite o nome do projeto">
+    </div>
+    <a [routerLink]="['/teams/new']" class="btn btn-dark col-sm-4">Cadastrar uma equipe</a>
+</div>
+
+<table class="table table-striped table-bordered border-dark table-hover">
+    <thead class="table-light">
+        <tr>
+            <th>Nome da equipe</th>
+            <th>Membros</th>
+            <th>(ID) Projeto</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let team of filteredTeams">
+            <td>{{ team.name  }}</td>
+            <td>{{ team.members }}</td>
+            <td>{{ team.project_id }}</td>
+        </tr>
+    </tbody>
+
+</table>

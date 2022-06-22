@@ -22,7 +22,6 @@ export class ProjectService {
     }
 
     save(project: Project): Observable<Project> {
-        console.log(project)
         if (project.id) {
             return this.httpClient.put<Project>(`${this.projectUrl}/${project.id}`, project);
         }else{
