@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class ProjectService {
 
-    private projectUrl: string = 'http://localhost:3000/';
+    private projectUrl: string = 'http://localhost:3000/projects';
 
     constructor(private httpClient: HttpClient){ }
 
