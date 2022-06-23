@@ -1,22 +1,24 @@
-<nav class="navbar navbar-expand-lg navbar-light mr-2">
-    <a [routerLink]="['/projects']" class="navbar-brand">Project Manager</a>
-
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item">
-                <a [routerLink]="['/projects']" routerLinkActive="active" class="nav-link">Projetos</a>
-            </li>
-            <li class="nav-item">
-                <a [routerLink]="['/teams']" routerLinkActive="active" class="nav-link">Equipes</a>
-            </li>
-            <li class="nav-item">
-                <a [routerLink]="['/tasks']" routerLinkActive="active" class="nav-link">Tarefas</a>
-            </li>
-        </ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mr-2">
+    <div class="container-fluid align-items-center">
+        <a [routerLink]="['/projects']" class="navbar-brand fs-1" style="font-family: 'Martel', serif; font-weight:600">Project Manager</a>
+    
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse d-flex justify-content-end"id="navbarSupportedContent">
+            <ul class="navbar-nav "style="font-family: 'Martel', serif; font-weight:400">
+                <li class="nav-item ml-auto">
+                    <a [routerLink]="['/projects']" routerLinkActive="active" class="nav-link fs-5">Projetos</a>
+                </li>
+                <li class="nav-item ml-auto">
+                    <a [routerLink]="['/teams']" routerLinkActive="active" class="nav-link fs-5">Equipes</a>
+                </li>
+                <li class="nav-item ml-auto">
+                    <a [routerLink]="['/tasks']" routerLinkActive="active" class="nav-link fs-5">Tarefas</a>
+                </li>
+            </ul>
+        </div>
     </div>
 </nav>
