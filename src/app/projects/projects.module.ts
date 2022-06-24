@@ -14,7 +14,7 @@ import { ProjectNewComponent } from "./project-new/project-new.component";
         CommonModule,
         FormsModule,
         RouterModule.forChild([
-             {
+              {
                 path: 'projects', component:   ProjectsListComponent
               },
               {
