@@ -1,4 +1,10 @@
-.container-fluid{
-    margin-top: 100px;
-    width: 85%;
+.title{
+    display: flex;
+    justify-content: center;
+}
+
+.title h2{
+    font-size: 2rem;
+    color: #083D93;
+    font-weight: 600;
 }

@@ -2,12 +2,16 @@
     font-family:'Martel, serif';
 }
 
+.bg-white-color{
+    color: #f5f5f5;
+}
+
 .bg-primary-color{
-    background-color: #f5f5f5;
+    background-color: #E5E5E5;
 }
 
 .bg-secondary-color{
-    background-color:#ADA8BE;
+    background-color:#F9FBFD;
 }
 
 .bg-dark-color{
@@ -15,9 +19,19 @@
 }
 
 .primary-color{
-    color: #191919;
+    color: #343D48;
 }
 
 .secondary-color{
-    color: #D5C5C8;
+    color: #0F2137;
 }
+
+.colors-primary{
+    color: #f56e28;
+}
+
+.colors-secondary{
+    color: #083D93;
+}
+
+

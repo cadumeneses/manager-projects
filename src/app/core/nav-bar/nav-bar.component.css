@@ -1,5 +1,5 @@
 #navbar{
-    border-bottom: 1px solid #191919;
+    border-bottom: 1px solid #283266;
 }
 
 .title{
@@ -8,11 +8,11 @@
 }
 
 #navbar a:hover{
-    color: #D5C5C8;
+    color: #f56e28;
 }
 
 #navbar a.active{
-    border-bottom:1px solid #191919;
+    border-bottom:1px solid #f56e28;
 }
 
 .navbar-brand{
@@ -27,4 +27,8 @@
 
 #navbar-items .nav-item{
     margin: 0 1em;
+}
+
+.nav-item a{
+    font-weight: 600;
 }
