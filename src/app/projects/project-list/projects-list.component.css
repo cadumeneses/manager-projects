@@ -28,7 +28,7 @@
 }
 
 .functions-projects{
-    width: 50%;
+    width: 50vw;
     height: 4rem;
     display: flex;
     justify-content: space-around;
@@ -65,14 +65,14 @@ input::placeholder{
 }
 
 .box-tablel{
-    width: 100%;
+    width: 100vw;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 table{
-    max-width: 50%;
+    max-width: 50vw;
     box-shadow: collapse;
     max-height: 25rem;
     overflow-x: hidden;
