@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { ProjectsModule } from "./projects/projects.module";
 import { TeamsModule } from './teams/teams.module';
+import { ProjectInfoComponent } from './projects/project-info/project-info.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    ProjectInfoComponent,
   ],
   imports: [
     BrowserModule,
