@@ -1,4 +1,4 @@
-<form #projectNewForm="ngForm" class="container-fluid d-flex justify-content-center flex-column align-items-center">
+    <form #projectNewForm="ngForm" class="container-fluid d-flex justify-content-center flex-column align-items-center">
         <h2>Cadastrar um novo projeto</h2>
     
         <div class="form-group col-6 off-set-md-3">
@@ -37,4 +37,7 @@
           </tbody>
       
       </table>
+
+      <button [routerLink]="['/projects']" (click)="save()" class="btn btn-info mr-2">Save</button>
+    <button [routerLink]="['/projects']" class="btn btn-secondary">Back</button>
 </form>

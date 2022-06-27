@@ -1,10 +1,14 @@
+nav{
+    width: 100vw;
+}
+
 #navbar{
-    border-bottom: 1px solid #283266;
+    border-bottom: 1px solid #f56e28;
 }
 
 .title{
     font-weight: 800;
-    font-size: 1.5rem;
+    font-size: 2rem;
 }
 
 #navbar a:hover{
@@ -30,5 +34,6 @@
 }
 
 .nav-item a{
+    font-size: 1.2rem;
     font-weight: 600;
 }

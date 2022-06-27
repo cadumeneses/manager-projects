@@ -1,5 +1,9 @@
 *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
     font-family:'Martel, serif';
+    overflow-x: hidden
 }
 
 .bg-white-color{
@@ -18,8 +22,12 @@
     background-color: #191919;
 }
 
+.bg-blue-color{
+    background-color: #083D93;
+}
+
 .primary-color{
-    color: #343D48;
+    color: #ffffff;
 }
 
 .secondary-color{
