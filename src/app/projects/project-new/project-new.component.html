@@ -1,43 +1,11 @@
-    <form #projectNewForm="ngForm" class="container-fluid d-flex justify-content-center flex-column align-items-center">
-        <h2>Cadastrar um novo projeto</h2>
-    
-        <div class="form-group col-6 off-set-md-3">
-            <label class="col-form-label">Nome do projeto:</label>
-            <div class="">
-                <input [(ngModel)]="project.name" required name="name" #projectName="ngModel" [ngClass]="{'is-invalid': projectName.invalid}" class="form-control" placeholder="Digite o nome do projeto">
-                <div class="invalid-feedback">
-                   <span>Project name is requerid</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="form-group col-6 off-set-md-3">
-            <label class="col-form-label fw-bold">Equipe:</label>
-            <div class="">
-                <input type="text" class="form-control" placeholder="Digite o nome da equipe que deseja adicionar" aria-label="First name">
-            </div>
-        </div>
-    
-        <table class="table table-striped table-bordered border-dark table-hover">
-          <thead class="table-light">
-              <tr>
-                  <th>Nome da equipe</th>
-                  <th>Membros</th>
-                  <th>ADD</th>
-      
-              </tr>
-          </thead>
-      
-          <tbody>
-              <tr *ngFor="let team of filteredTeams">
-                  <td>{{ team.name  }}</td>
-                  <td>{{ team.members }}</td>
-                  <td></td>
-              </tr>
-          </tbody>
-      
-      </table>
+<form #projectNewForm="ngForm" class="">
 
-      <button [routerLink]="['/projects']" (click)="save()" class="btn btn-info mr-2">Save</button>
-    <button [routerLink]="['/projects']" class="btn btn-secondary">Back</button>
+    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color">Cadastrar um novo
+        projeto</h2>
+
+    <div class="btns-new d-flex justify-content-center aling-items-center">
+        <button [routerLink]="['/projects']" (click)="save()" class="btn btn-info mr-3">Save</button>
+        <button [routerLink]="['/projects']" class="btn btn-secondary">Back</button>
+    </div>
+
 </form>

@@ -12,16 +12,6 @@
     justify-content: center;
 }
 
-.title h2{
-    font-size: 2rem;
-    color: #f56e28;
-    font-weight: 600;
-}
-
-.title h2:hover{
-    color: #083D93;
-}
-
 .box-all{
     padding-top: 2rem;
     width: 100vw;
