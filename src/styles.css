@@ -3,7 +3,10 @@
     padding: 0;
     box-sizing: border-box;
     font-family:'Martel, serif';
-    overflow-x: hidden
+}
+
+body{
+    background-color: #E5E5E5;
 }
 
 .bg-white-color{
