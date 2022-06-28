@@ -17,6 +17,7 @@ nav{
 
 #navbar a.active{
     border-bottom:1px solid #f56e28;
+    color: #ffffff;
 }
 
 .navbar-brand{

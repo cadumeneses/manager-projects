@@ -3,6 +3,22 @@
     <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color">Cadastrar um novo
         projeto</h2>
 
+    <div class="d-flex justify-content-center aling-items-center col-6">
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="floatingInput" placeholder="Nome do projeto" required>
+            <label for="floatingInput">Nome do projeto</label>
+        </div>
+        <select class="form-select" aria-label="Default select example">
+            <option selected>Selecione a equipe</option>
+            <option *ngFor="let team of filteredTeams" value="1">{{ team.name }}</option>
+        </select>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea2"
+                style="height: 100px"></textarea>
+            <label for="floatingTextarea2">Desccrição</label>
+        </div>
+    </div>
+
     <div class="btns-new d-flex justify-content-center aling-items-center">
         <button [routerLink]="['/projects']" (click)="save()" class="btn btn-info mr-3">Save</button>
         <button [routerLink]="['/projects']" class="btn btn-secondary">Back</button>
