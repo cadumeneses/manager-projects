@@ -66,6 +66,7 @@ input::placeholder{
 
 .btn-create:hover{
     background-color:#083D93;
+    text-decoration: none;
 }
 
 .box-table{
