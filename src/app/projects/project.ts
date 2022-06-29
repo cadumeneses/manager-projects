@@ -4,5 +4,6 @@ export class Project{
     teams!: Array<String>;
     tasks!: Array<String>;
     status!: String;
+    description!: String;
 }
     

@@ -7,23 +7,23 @@ import { ProjectNewComponent } from "./project-new/project-new.component";
 
 @NgModule({
     declarations: [
-          ProjectsListComponent,
-          ProjectNewComponent
+        ProjectsListComponent,
+        ProjectNewComponent
     ],
     imports: [
         CommonModule,
         FormsModule,
         RouterModule.forChild([
-              {
-                path: 'projects', component:   ProjectsListComponent
-              },
-              {
-                  path: 'projects/new', component: ProjectNewComponent
-              }           
-         ])
+            {
+                path: 'projects', component: ProjectsListComponent
+            },
+            {
+                path: 'projects/new', component: ProjectNewComponent
+            }
+        ])
     ]
 })
 
-export class ProjectsModule { 
+export class ProjectsModule {
 
 }

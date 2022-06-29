@@ -19,6 +19,8 @@ export class ProjectNewComponent implements OnInit {
 
   project: Project = new Project()
 
+  show: boolean = false
+
   constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService) { }
 
   ngOnInit(): void {
@@ -45,6 +47,10 @@ export class ProjectNewComponent implements OnInit {
   set filter(value: string){
     this._filterBy = value;
     this.filteredTeams = this._teams.filter((team: Team) => team.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
+  }
+
+  mostrar(){
+    this.show = !this.show
   }
 
 }
