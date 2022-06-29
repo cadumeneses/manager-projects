@@ -81,6 +81,11 @@ input::placeholder{
     text-align: center;
 }
 
+.table tbody tr:hover{
+    background-color: #f56e28;
+    color: #083D93;
+}
+
 .thead{
     background-color: #083D93;
     color: #ffffff;
