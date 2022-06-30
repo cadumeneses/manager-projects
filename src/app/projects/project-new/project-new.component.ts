@@ -19,12 +19,12 @@ export class ProjectNewComponent implements OnInit {
 
   project: Project = new Project()
 
-  list = ['a','b', 'c'];
+  // list = ['a','b', 'c'];
 
 
   constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService) { }
 
-  
+
 
   ngOnInit(): void {
     this.retrieveAll()

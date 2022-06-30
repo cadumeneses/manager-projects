@@ -20,13 +20,12 @@
                 <label for="floatingTextarea2">Descrição</label>
             </div>
 
-            <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="project.teams">
+            <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="project.team">
                 <option selected>Selecione a equipe</option>
-                <option *ngFor="let team of filteredTeams" value="1">{{ team.name }}</option>
+                <option *ngFor="let team of filteredTeams">{{ team.name }}</option>
             </select>
 
             <!-- <div class="tasks">
-                <button class="btn-new-task">Add task</button>
                 <div [(ngModel)]="project.tasks" class="form-floating mb-3" name="projectTasks" ngDefaultControl>
                     <div>
                         <ng-container>
@@ -37,12 +36,14 @@
                         </ng-container>
                     </div>
                 </div>
-            </div> -->
+            </div>
+                <ul >
+                    <li>{{ project.tasks }}</li>
+                </ul> -->
 
 
 
-
-            <!-- <div *ngFor="let task of project.tasks">
+            <div *ngFor="let task of project.tasks">
                 <div >
                     <div class="form-floating mb-3">
                         <input [(ngModel)]="project.tasks" type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
@@ -51,8 +52,19 @@
                 </div>
             </div>
 
-            <div class="">
+            <!-- <div class="">
                 <button (click)="saveTask()"></button>
+            </div> -->
+            <!-- <div class="form-floating mb-3">
+                <input [(ngModel)]="project.tasks" name="project.tasks[i]" type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
+                <label for="floatingInput">Tarefa do projeto</label>
+            </div> -->
+
+            <!-- <div *ngFor="let task of project.tasks;let i = index">
+                <div class="form-floating mb-3">
+                    <input [(ngModel)]="project.tasks[i]" name="project.tasks[i]" type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
+                    <label for="floatingInput">Tarefa do projeto</label>
+                </div>
             </div> -->
 
 
