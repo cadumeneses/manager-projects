@@ -14,7 +14,7 @@ export class ProjectNewComponent implements OnInit {
   filteredTeams: Team[] = [];
 
   _teams: Team[] = [];
-
+  
   _filterBy!: string;
 
   project: Project = new Project()

@@ -26,11 +26,25 @@
             </select>
 
             <div class="tasks">
+                <button class="btn-new-task">Add task</button>
                 <div [(ngModel)]="project.tasks" class="form-floating mb-3" name="projectTasks" ngDefaultControl>
-                    <input type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
-                    <label for="floatingInput">Tarefa do projeto</label>
+                    <div>
+                        <ng-container>
+                            <div class="form-floating mb-3">
+                                <input type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
+                                <label for="floatingInput">Tarefa do projeto</label>
+                            </div>
+                        </ng-container>
+                    </div>
                 </div>
             </div>
+
+
+            <div *ngFor="let task of project.tasks;let i = index">
+                <div ></div>
+
+            </div>
+
         </div>
 
     </div>

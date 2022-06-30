@@ -22,7 +22,7 @@
 }
 
 .functions-projects{
-    width: 50vw;
+    width: 80vw;
     height: 4rem;
     display: flex;
     justify-content: space-around;
@@ -68,8 +68,8 @@ input::placeholder{
 }
 
 .wrapper-table{
-    width: 50vw;
-    height: 60vh;
+    width: 80vw;
+    height: 65vh;
 }
 
 .table th,
@@ -90,6 +90,7 @@ input::placeholder{
     background-color: #083D93;
     color: #ffffff;
     text-align: center;
+    height: 4rem;
 }
 
 .btns-action{
