@@ -1,4 +1,4 @@
-<div class="" style="width: 100vw;">
+<section class="" style="width: 100vw;">
 
     <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height:3rem">
         Cadastrar um novo
@@ -25,12 +25,12 @@
                 <option *ngFor="let team of filteredTeams" value="1">{{ team.name }}</option>
             </select>
 
-            <div class="tasks">
+            <!-- <div class="tasks">
                 <div [(ngModel)]="project.tasks" class="form-floating mb-3">
                     <input type="text" class="form-control" id="floatingInput" placeholder="Tarefas" required >
                     <label for="floatingInput">Tarefa do projeto</label>
                 </div>
-            </div>
+            </div> -->
         </div>
 
     </div>
@@ -40,4 +40,4 @@
         <button [routerLink]="['/projects']" class="btn btn-secondary">Back</button>
     </div>
 
-</div>
+</section>
