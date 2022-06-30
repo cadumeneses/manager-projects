@@ -25,12 +25,12 @@
                 <option *ngFor="let team of filteredTeams" value="1">{{ team.name }}</option>
             </select>
 
-            <!-- <div class="tasks">
-                <div [(ngModel)]="project.tasks" class="form-floating mb-3">
-                    <input type="text" class="form-control" id="floatingInput" placeholder="Tarefas" required >
+            <div class="tasks">
+                <div [(ngModel)]="project.tasks" class="form-floating mb-3" name="projectTasks" ngDefaultControl>
+                    <input type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
                     <label for="floatingInput">Tarefa do projeto</label>
                 </div>
-            </div> -->
+            </div>
         </div>
 
     </div>
