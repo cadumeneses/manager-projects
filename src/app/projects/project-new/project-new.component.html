@@ -77,20 +77,20 @@
                     {{ project.tasks }}
                 </li>
             </ul> -->
+            
+            <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
 
-            <ng-container [formGroup]="rgForm">
-                <div >
-
-                    <label>Tarefa</label>
-                    <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
-                    <input type="text" [(ngModel)]="project.tasks" [ngModelOptions]="{standalone: true}">
-                    <ng-container formArrayName="tasks" *ngFor="let rgForm of tasks.controls; let i=index">
-                        <div [formGroupName]="i">
-                            <input type="text" formControlName="tasks" [(ngModel)]="project.tasks" >
+            <div [formGroup]="rgForm">
+                <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let index=index">
+                        <div [formGroupName]="index">
+                            <label [attr.for]="'task' + index">Tarefa</label>
+                            <input type="text" formControlName="task" [(ngModel)]="project.tasks" id="task" [attr.id]="'task' + index">
                         </div>
-                    </ng-container>
-                </div>
-            </ng-container>
+                        <div>
+                            <button type="button" class="btn btn-danger" (click)="deleteTask()">Remover</button>
+                        </div>
+                </ng-container>
+            </div>
 
             <!-- https://dontpaniclabs.com/blog/post/2022/01/05/how-to-use-angular-formarrays-within-formgroups-in-reactive-forms/ -->
         
