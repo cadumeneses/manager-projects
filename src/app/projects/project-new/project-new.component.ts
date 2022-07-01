@@ -59,9 +59,9 @@ export class ProjectNewComponent implements OnInit {
     this.tasks.push(taskFormGroup)
   }
 
-  deleteTask(index: number){[
-    this.tasks.removeAt(index)
-  ]}
+  deleteTask(indice: number){(
+    this.tasks.removeAt(indice)
+  )}
 
   refresh(){
     this.tasks.controls.splice(0, this.tasks.length);

@@ -81,14 +81,12 @@
             <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
 
             <div [formGroup]="rgForm">
-                <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let index=index">
-                        <div [formGroupName]="index">
-                            <label [attr.for]="'task' + index">Tarefa</label>
-                            <input type="text" formControlName="task" [(ngModel)]="project.tasks" id="task" [attr.id]="'task' + index">
+                <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <label [attr.for]="'task' + i">Tarefa</label>
+                            <input type="text" formControlName="task" [(ngModel)]="project.tasks[i]" [attr.id]="'task' + i">
                         </div>
-                        <div>
-                            <button type="button" class="btn btn-danger" (click)="deleteTask()">Remover</button>
-                        </div>
+                            <button type="button" class="btn btn-danger" (click)="deleteTask(i)">Remover</button>
                 </ng-container>
             </div>
 
