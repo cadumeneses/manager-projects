@@ -1,7 +1,7 @@
 <div class="project-list bg-primary-color">
 
     <div class="title bg-secondary-color colors-primary">
-        <h2>Projetos</h2>
+        <h2>Lista de Projetos</h2>
     </div>
 
     <div class="box-all">
@@ -12,29 +12,52 @@
     </div>
 
     <div class="box-table">
-
         <div class="wrapper-table overflow-auto">
             <table class="table">
                 <thead class="thead sticky-top">
                     <tr>
-                    <th>Nome do projeto</th>
-                    <th>Status</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody class="table">
-                <tr *ngFor="let project of filteredProjects">
-                    <td>{{ project.name }}</td>
-                    <td>{{ project.status }}</td>
-                    <td>
-                        <div class="btns-action">
-                            <a [routerLink]="['/projects/info', project.id]" class="btn btn-info mx-2">Informações</a>
-                            <button (click)="deleteById(project.id)" class="btn btn-danger">Delete</button>
-                        </div>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+                        <th>Nome do projeto</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody class="table">
+                    <tr *ngFor="let project of filteredProjects">
+                        <td>{{ project.name }}</td>
+                        <td>{{ project.status }}</td>
+                        <td>
+                            <div class="btns-action">
+                                <a [routerLink]="['/projects/info', project.id]"
+                                    class="btn btn-info mx-2">Informações</a>
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">Delete</button>
+
+                                <div class="modal fade" id="exampleModal" tabindex="-1"
+                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLabel">Deletar {{ project.name }}</h5>
+                                                <button type="button" class="btn-close" data-dismiss="modal"
+                                                    aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                Tem certeza que deseja apagar: {{ project.name }}
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary"
+                                                    data-dismiss="modal">Voltar</button>
+                                                <button [routerLink]="['/projects']" (click)="deleteById(project.id)"
+                                                    class="btn btn-danger">Delete</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
