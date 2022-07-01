@@ -2,6 +2,7 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
+import { ProjectInfoComponent } from "./project-info/project-info.component";
 import { ProjectsListComponent } from "./project-list/projects-list.component";
 import { ProjectNewComponent } from "./project-new/project-new.component";
 
@@ -19,6 +20,9 @@ import { ProjectNewComponent } from "./project-new/project-new.component";
             },
             {
                 path: 'projects/new', component: ProjectNewComponent
+            },
+            {
+                path: 'projects/info',component: ProjectInfoComponent
             }
         ])
     ]
