@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectNewService } from "./project-new.service";
 import { Team } from "src/app/teams/team";
-import { FormBuilder, FormArray, FormGroup } from '@angular/forms';
+import { FormBuilder, FormArray, FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-project-new',
@@ -30,7 +30,7 @@ export class ProjectNewComponent implements OnInit {
   }
 
   addTasks(){
-    this.tasks.push(this.fb.control(''));
+    this.tasks.push(this.fb.control('tasks'));
   }
 
   constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService, private fb: FormBuilder) {
@@ -40,6 +40,7 @@ export class ProjectNewComponent implements OnInit {
     this.retrieveAll()
 
     this.rgForm = this.fb.group({
+      task: new FormControl(''),
       tasks: this.fb.array([])
     })
 

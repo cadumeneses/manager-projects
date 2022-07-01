@@ -78,19 +78,21 @@
                 </li>
             </ul> -->
 
-            <div [formGroup]="rgForm" >
-                <div formGroupName="tasks">
+            <ng-container [formGroup]="rgForm">
+                <div >
 
                     <label>Tarefa</label>
                     <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
                     <input type="text" [(ngModel)]="project.tasks" [ngModelOptions]="{standalone: true}">
-                    <div formArrayName="Tasks" *ngFor="let task of tasks.controls; let i=index">
-                        <input type="text" [formControlName]="i" [(ngModel)]="project.tasks" >
-                    </div>
+                    <ng-container formArrayName="tasks" *ngFor="let rgForm of tasks.controls; let i=index">
+                        <div [formGroupName]="i">
+                            <input type="text" formControlName="tasks" [(ngModel)]="project.tasks" >
+                        </div>
+                    </ng-container>
                 </div>
-            </div>
+            </ng-container>
 
-        
+            <!-- https://dontpaniclabs.com/blog/post/2022/01/05/how-to-use-angular-formarrays-within-formgroups-in-reactive-forms/ -->
         
         </div>
 
