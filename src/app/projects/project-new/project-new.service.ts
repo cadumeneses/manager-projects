@@ -10,7 +10,8 @@ import { Project } from "../project";
 
 export class ProjectNewService {
     private teamUrl: string = 'http://localhost:3000/teams';
-    private projectUrl: string = 'http://localhost:3000/projects'   
+    private projectUrl: string = 'http://localhost:3000/projects';
+    private tasks: string[] = [] 
 
     constructor(private httpClient: HttpClient) { }
 

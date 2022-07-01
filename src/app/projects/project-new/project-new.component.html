@@ -43,14 +43,14 @@
 
 
 
-            <div *ngFor="let task of project.tasks">
+            <!-- <div *ngFor="let task of project.tasks">
                 <div >
                     <div class="form-floating mb-3">
                         <input [(ngModel)]="project.tasks" type="text" class="form-control" id="floatingInput one" placeholder="Tarefas" required >
                         <label for="floatingInput">Tarefa do projeto</label>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- <div class="">
                 <button (click)="saveTask()"></button>
@@ -67,7 +67,31 @@
                 </div>
             </div> -->
 
+            <!-- <div>
+                <input (ngModel)="project.tasks" type="text" #taskInput>
+                <button  (click)="OnAddTask(taskInput.value)">Add</button>
+            </div>
 
+            <ul>
+                <li *ngFor="let task of project.tasks">
+                    {{ project.tasks }}
+                </li>
+            </ul> -->
+
+            <div [formGroup]="rgForm" >
+                <div formGroupName="tasks">
+
+                    <label>Tarefa</label>
+                    <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
+                    <input type="text" [(ngModel)]="project.tasks" [ngModelOptions]="{standalone: true}">
+                    <div formArrayName="Tasks" *ngFor="let task of tasks.controls; let i=index">
+                        <input type="text" [formControlName]="i" [(ngModel)]="project.tasks" >
+                    </div>
+                </div>
+            </div>
+
+        
+        
         </div>
 
     </div>
