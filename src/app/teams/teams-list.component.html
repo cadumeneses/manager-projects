@@ -1,29 +1,43 @@
-<h2>Equipes</h2>
+<div class="team-list bg-primary-color">
 
-<div class="form-group row justify-content-around">
-    <label class="col-sm-2 col-form-label"><h5>Procurar Equipe:</h5></label>
-    <div class="col-sm-4 row aling-items-center mr-2">
-        <input [(ngModel)]="filter" class="form-control" placeholder="Digite o nome do projeto">
+    <div class="title bg-secondary-color colors-primary">
+        <h2>Lista de Equipes</h2>
     </div>
-    <a [routerLink]="['/teams/new']" class="btn btn-dark col-sm-4">Cadastrar uma equipe</a>
+
+    <div class="box-all">
+        <div class="functions-teams bg-secondary-color">
+            <input [(ngModel)]="filter" class="filter-team" placeholder="Pesquise uma equipe">
+            <a [routerLink]="['/teams/new']" class="btn-create">Cadastrar uma Equipe</a>
+        </div>
+    </div>
+
+    <div class="box-table">
+        <div class="wrapper-table overflow-auto">
+            <table class="table">
+                <thead class="thead sticky-top">
+                    <tr>
+                        <th>Nome da equipe</th>
+                        <th>Membros</th>
+                        <th>Projeto</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody class="table">
+                    <tr *ngFor="let team of filteredTeams">
+                        <td>{{ team.name }}</td>
+                        <td>{{ team.members}}</td>
+                        <td>{{ team.project_name}}</td>
+                        <td>
+                            <div class="btns-action">
+                                <a [routerLink]="['/teams/info', team.id]"
+                                    class="btn btn-info mx-2">Informações</a>
+                                <button [routerLink]="['/teams']" (click)="deleteById(team.id)"
+                                    class="btn btn-danger">Delete</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
-
-<table class="table table-striped table-bordered border-dark table-hover">
-    <thead class="table-light">
-        <tr>
-            <th>Nome da equipe</th>
-            <th>Membros</th>
-            <th>(ID) Projeto</th>
-
-        </tr>
-    </thead>
-
-    <tbody>     
-        <tr *ngFor="let team of filteredTeams">
-            <td>{{ team.name  }}</td>
-            <td>{{ team.members }}</td>
-            <td>{{ team.project_id }}</td>
-        </tr>
-    </tbody>
-
-</table>

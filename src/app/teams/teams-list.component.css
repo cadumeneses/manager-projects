@@ -1,0 +1,100 @@
+*{
+    overflow-x: hidden;
+}
+
+.team-list{
+    width: 100vw;
+}
+
+.title{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.box-all{
+    padding-top: 2rem;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.functions-teams{
+    width: 80vw;
+    height: 4rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.filter-team{
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 6.25rem;
+    border: 1px solid#f56e28;
+    padding: 1rem;
+    outline: none;
+    color: #f56e28;
+}
+
+input::placeholder{
+    color: #f56e28;
+}
+
+.btn-create{
+    background-color: #f56e28;
+    color: #ffffff;
+    width: 15rem;
+    height: 2.5rem;
+    border-radius: 6.25rem;
+    border: none;
+    text-align: center; 
+    padding-top: 0.5rem;
+    text-decoration: none;
+}
+
+.btn-create:hover{
+    background-color:#083D93;
+    text-decoration: none;
+}
+
+.box-table{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper-table{
+    width: 80vw;
+    height: 65vh;
+}
+
+.table th,
+.table td{
+    padding: 1rem;
+}
+
+.table td{
+    text-align: center;
+}
+
+.table tbody tr:hover{
+    background-color: #f56e28;
+    color: #083D93;
+}
+
+.thead{
+    background-color: #083D93;
+    color: #ffffff;
+    text-align: center;
+    height: 4rem;
+}
+
+.btns-action{
+    display: flex;
+    align-items: center;
+    justify-content: center ;
+}

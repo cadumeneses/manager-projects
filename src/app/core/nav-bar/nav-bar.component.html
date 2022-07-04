@@ -7,13 +7,10 @@
             <span class="navbar-toggler-icon text-danger"></span>
         </button>
     
-        <div class="collapse navbar-collapse"id="navbar-items">
-            <ul class="navbar-nav">
+        <div class="collapse navbar-collapse" id="navbar-items">
+            <ul class="navbar-nav" *ngFor="let option of options">
                 <li class="nav-item">
-                    <a [routerLink]="['/projects']" routerLinkActive="active" class="nav-link primary-color">Projetos</a>
-                </li>   
-                <li class="nav-item">
-                    <a [routerLink]="['/teams']" routerLinkActive="active" class="nav-link primary-color">Equipes</a>
+                    <a [routerLink]="option.routerLink" [class]="option.class" [routerLinkActive]="option.routerLinkActive">{{ option.label }}</a>
                 </li>
             </ul>
         </div>
