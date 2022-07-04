@@ -20,9 +20,7 @@ export class ProjectNewComponent implements OnInit {
 
   project: Project = new Project()
 
-  // list = ['a','b', 'c'];
-
-  // list = ['a','b', 'c'];
+  filteredMembersTeam: Team[] = []
 
   constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService, private fb: FormBuilder) {
   }
@@ -30,10 +28,6 @@ export class ProjectNewComponent implements OnInit {
   ngOnInit(): void {
     this.retrieveAll()
   }
-
-  // admForm = this.fb.group({
-  //   nameTask: new FormControl(''),
-  // })
 
   rgForm = this.fb.group({
     tasks: this.fb.array([])
@@ -43,18 +37,9 @@ export class ProjectNewComponent implements OnInit {
     return this.rgForm.get('tasks') as FormArray;
   }
 
-  // get tasks(){
-  //   return this.rgForm.controls["tasks"] as FormArray;
-  // }
-
-  // addTasks(){
-  //   this.tasks.push(this.admForm),
-  //   this.tasks = null
-  // }
-
   addTasks(){
     const taskFormGroup = this.fb.group({
-      task: ''
+      task: '' || undefined,
     })
     this.tasks.push(taskFormGroup)
   }
@@ -86,8 +71,8 @@ export class ProjectNewComponent implements OnInit {
 
   set filter(value: string) {
     this._filterBy = value;
-    this.filteredTeams = this._teams.filter((team: Team) => team.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
+    this.filteredTeams = this._teams.filter((team: Team) => team.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
+    this.filteredMembersTeam = this._teams.filter((member: Team) => member.members)
   }
-
   
 }
