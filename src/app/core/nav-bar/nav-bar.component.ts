@@ -11,8 +11,6 @@ export class NavBarComponent{
 
     options: NavBar[] = []
 
-    optinnn = ['a', 'b', 'c']
-
     constructor(private navBarService: NavBarService) { }
 
     ngOnInit(): void {
@@ -21,7 +19,6 @@ export class NavBarComponent{
 
     getNavBar(){
         this.options = this.navBarService.getNavBar()
-        console.log(this.options)
     }
     
 }
