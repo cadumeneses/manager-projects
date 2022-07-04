@@ -31,6 +31,16 @@ export class TeamsListComponent implements OnInit {
     })
   }
 
+  deleteById(teamId: number): void{
+    this.teamService.deleteById(teamId).subscribe({
+        next: () =>{
+            console.log('Deleted with sucess');
+            this.retrieveAll();
+        },
+        error: err => console.log('Error', err)
+    })
+  }
+
   set filter(value: string){
     this._filterBy = value;
     this.filteredTeams = this._teams.filter((team: Team) => team.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
