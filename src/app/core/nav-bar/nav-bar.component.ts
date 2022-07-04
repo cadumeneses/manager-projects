@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { NavBarService, NavBar } from "./nav-bar.service";
 
 @Component({
     selector: 'app-nav-bar',
@@ -8,4 +9,19 @@ import { Component } from "@angular/core";
 
 export class NavBarComponent{
 
+    options: NavBar[] = []
+
+    optinnn = ['a', 'b', 'c']
+
+    constructor(private navBarService: NavBarService) { }
+
+    ngOnInit(): void {
+        this.getNavBar()
+    }
+
+    getNavBar(){
+        this.options = this.navBarService.getNavBar()
+        console.log(this.options)
+    }
+    
 }
