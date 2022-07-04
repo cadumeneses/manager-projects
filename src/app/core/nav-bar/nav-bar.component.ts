@@ -21,7 +21,6 @@ export class NavBarComponent{
 
     getNavBar(){
         this.options = this.navBarService.getNavBar()
-        console.log(this.options)
     }
     
 }
