@@ -20,9 +20,10 @@
                 <label for="floatingTextarea2">Descrição</label>
             </div>
 
-            <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="project.team">
+            <label for="team">Equipe</label>
+            <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="project.team" id="team">
                 <option selected>Selecione a equipe</option>
-                <option *ngFor="let team of filteredTeams">{{ team.name }}</option>
+                <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
             </select>
 
             <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
@@ -30,14 +31,14 @@
             <div [formGroup]="rgForm">
                 <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
                         <div [formGroupName]="i">
-                            <div class="form-floating mb-3">
-                                <input type="text" formControlName="task" [(ngModel)]="project.tasks[i]" [attr.id]="'task' + i" id="floatingInputT" class="form-control"  placeholder="Nome da tarefa" required>
+                            <div class="form-floating mb-3" >
+                                <input [(ngModel)]="project.tasks[i].name" type="text" formControlName="task" [attr.id]="'task' + i" id="floatingInputT" class="form-control"  placeholder="Nome da tarefa" required>
                                 <label [attr.for]="'task' + i" for="floatingInputT">Tarefa</label>
                             </div>
                             <div>
                                 <select class="form-select mb-3" aria-label="Default select example">
                                     <option selected>Selecione o membro</option>
-                                    <option *ngFor="let member of filteredMembersTeam">{{ member }}</option>
+                                    <option *ngFor="let member of filteredTeams">{{ member.members }}</option>
                                 </select>
                             </div>
                         </div>

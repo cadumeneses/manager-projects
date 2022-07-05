@@ -30,6 +30,9 @@ export class ProjectNewComponent implements OnInit {
   }
 
   rgForm = this.fb.group({
+    name: '',
+    teamName: '',
+    description: '',
     tasks: this.fb.array([])
   })
 
@@ -72,7 +75,7 @@ export class ProjectNewComponent implements OnInit {
   set filter(value: string) {
     this._filterBy = value;
     this.filteredTeams = this._teams.filter((team: Team) => team.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
-    this.filteredMembersTeam = this._teams.filter((member: Team) => member.members)
+    this.filteredMembersTeam = this.filteredTeams.filter((member: Team) => member.members.indexOf(this._filterBy))
   }
   
 }
