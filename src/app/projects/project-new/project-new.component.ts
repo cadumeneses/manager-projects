@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectNewService } from "./project-new.service";
 import { Team } from "src/app/teams/team";
-import { FormBuilder, FormArray } from '@angular/forms';
+import { FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-new',
@@ -30,9 +30,9 @@ export class ProjectNewComponent implements OnInit {
   }
 
   rgForm = this.fb.group({
-    name: '',
-    team: '',
-    description: '',
+    name: ['', Validators.required],
+    team: ['',],
+    description: ['', Validators.required],
     tasks: this.fb.array([])
   })
 
@@ -74,6 +74,10 @@ export class ProjectNewComponent implements OnInit {
   }
 
   save(): void {
+    if(!this.rgForm.valid){
+      console.log("Não foi possível cadastrar o projeto porque o cadastro está inválido");
+      return;
+    }
     const payLoad = this.rgForm.value;
     this.projectNewService.save(payLoad as any).subscribe({
       next: project => console.log('Save Project', project),

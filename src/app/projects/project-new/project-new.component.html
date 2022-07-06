@@ -53,7 +53,7 @@
     <div class="btns-new d-flex justify-content-center aling-items-center">
         <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i class="fa-solid fa-arrow-left"></i></button>
         <button (click)="refresh()" class="btn btn-danger mr-3"><i class="fa-solid fa-arrows-rotate"></i></button>
-        <button  (click)="save()" class="btn btn-info"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
+        <button (click)="save()" [disabled]="!rgForm.valid" class="btn btn-info"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
     </div>
 
 </form>
