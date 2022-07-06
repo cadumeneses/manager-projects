@@ -43,6 +43,10 @@ input::placeholder{
     color: #f56e28;
 }
 
+input:focus::placeholder{
+    color:#F9FBFD;
+}
+
 .btn-create{
     background-color: #f56e28;
     color: #ffffff;
