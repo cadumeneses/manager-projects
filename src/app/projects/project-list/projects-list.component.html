@@ -6,7 +6,7 @@
 
     <div class="box-all">
         <div class="functions-projects bg-secondary-color">
-            <input [(ngModel)]="filter" class="btn filter-project" placeholder="Pesquise um projeto">            
+            <input [(ngModel)]="filter" class="btn filter-project" placeholder="Pesquise um projeto">
             <a [routerLink]="['/projects/new']" class="btn btn-create"><i class="fa-solid fa-plus"></i></a>
         </div>
     </div>
@@ -27,10 +27,12 @@
                         <td>{{ project.team }}</td>
                         <td>
                             <div class="btns-action">
-                                <a [routerLink]="['/projects/info', project.id]"
-                                    class="btn bg-blue-color mx-2"><i class="fa-solid fa-info primary-color" style="width: 1rem; height: 1rem;"></i></a>
+                                <a [routerLink]="['/projects/info', project.id]" class="btn bg-blue-color mx-2"><i
+                                        class="fa-solid fa-info primary-color"
+                                        style="width: 1rem; height: 1rem;"></i></a>
                                 <button [routerLink]="['/projects']" (click)="deleteById(project.id)"
-                                    class="btn btn-danger"><i class="fa-solid fa-trash-can primary-color" style="width: 1rem; height: 1rem; opacity: 0.8;"></i></button>
+                                    class="btn btn-danger"><i class="fa-solid fa-trash-can primary-color"
+                                        style="width: 1rem; height: 1rem; opacity: 0.8;"></i></button>
                             </div>
                         </td>
                     </tr>
