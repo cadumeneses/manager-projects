@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectNewService } from "./project-new.service";
 import { Team } from "src/app/teams/team";
-import { FormBuilder, FormArray, FormControl } from '@angular/forms';
+import { FormBuilder, FormArray } from '@angular/forms';
 
 @Component({
   selector: 'app-project-new',
@@ -31,10 +31,22 @@ export class ProjectNewComponent implements OnInit {
 
   rgForm = this.fb.group({
     name: '',
-    teamName: '',
+    team: '',
     description: '',
     tasks: this.fb.array([])
   })
+
+  get name(){
+    return this.rgForm.get('name')
+  }
+
+  get description(){
+    return this.rgForm.get('description')
+  }
+
+  get team(){
+    return this.rgForm.get('team')
+  }
 
   get tasks(){
     return this.rgForm.get('tasks') as FormArray;
@@ -42,7 +54,8 @@ export class ProjectNewComponent implements OnInit {
 
   addTasks(){
     const taskFormGroup = this.fb.group({
-      task: '' || undefined,
+      nameTask: '',
+      member: '',
     })
     this.tasks.push(taskFormGroup)
   }
@@ -52,11 +65,17 @@ export class ProjectNewComponent implements OnInit {
   )}
 
   refresh(){
+    this.rgForm.patchValue({
+      name: '',
+      description: '',
+      team: ''
+    });
     this.tasks.controls.splice(0, this.tasks.length);
   }
 
   save(): void {
-    this.projectNewService.save(this.project).subscribe({
+    const payLoad = this.rgForm.value;
+    this.projectNewService.save(payLoad as any).subscribe({
       next: project => console.log('Save Project', project),
       error: err => console.log('Error', err)
     });

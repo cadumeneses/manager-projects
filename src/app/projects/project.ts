@@ -1,15 +1,15 @@
 export class Project {
     id!: number;
-    name!: String;
-    team!: String;
-    tasks!: [
+    name!: string;
+    team!: string;
+    tasks?: [
         {
-            name: string,
+            nameTask: string,
             member: string,
             dateInit: Date,
             dateEnd: Date
         }
     ];
-    status!: String;
-    description!: String;
+    status?: string;
+    description!: string;
 }

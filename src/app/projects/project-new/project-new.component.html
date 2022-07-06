@@ -1,58 +1,59 @@
-<section class="" style="width: 100vw;">
+<form [formGroup]="rgForm" class="" style="width: 100vw;">
 
     <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height:3rem">
         Cadastrar um novo
-        projeto</h2>
+        projeto
+    </h2>
 
     <div class="d-flex justify-content-center aling-items-center" style="width:100vw ;">
-
         <div class="wrapper-form" style="width: 50vw;">
 
             <div class="form-floating mb-3">
-                <input [(ngModel)]="project.name" type="text" class="form-control" id="floatingInput"
+                <input formControlName="name" type="text" class="form-control" id="floatingInput"
                     placeholder="Nome do projeto" required>
                 <label for="floatingInput">Nome do projeto</label>
             </div>
 
             <div class="form-floating mb-3">
-                <textarea [(ngModel)]="project.description" class="form-control" placeholder="Project for description"
+                <textarea formControlName="description" class="form-control" placeholder="Project for description"
                     id="floatingTextarea2" style="height: 100px"></textarea>
                 <label for="floatingTextarea2">Descrição</label>
             </div>
 
-            <label for="team">Equipe</label>
-            <select class="form-select mb-3" aria-label="Default select example" [(ngModel)]="project.team" id="team">
-                <option selected>Selecione a equipe</option>
-                <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
-            </select>
-
-            <button type="button" class="btn btn-primary" (click)="addTasks()">Add task</button>
-
-            <div [formGroup]="rgForm">
-                <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
-                        <div [formGroupName]="i">
-                            <div class="form-floating mb-3" >
-                                <input [(ngModel)]="project.tasks[i].name" type="text" formControlName="task" [attr.id]="'task' + i" id="floatingInputT" class="form-control"  placeholder="Nome da tarefa" required>
-                                <label [attr.for]="'task' + i" for="floatingInputT">Tarefa</label>
-                            </div>
-                            <div>
-                                <select class="form-select mb-3" aria-label="Default select example">
-                                    <option selected>Selecione o membro</option>
-                                    <option *ngFor="let member of filteredTeams">{{ member.members }}</option>
-                                </select>
-                            </div>
-                        </div>
-                            <button type="button" class="btn btn-danger" (click)="deleteTask(i)">Remover</button>
-                </ng-container>
+            <div>
+                <label for="team">Equipe</label>
+                <select class="form-select mb-3" aria-label="Default select example" formControlName="team" id="team">
+                    <option selected>Selecione a equipe</option>
+                    <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
+                </select>
             </div>
-        
-        </div>
 
+            <label for="" class="mr-3">Tarefas</label>
+            <button type="button" class="btn btn-primary" (click)="addTasks()"><i class="fa-solid fa-plus"></i></button>
+            <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
+                <div [formGroupName]="i">
+                    <div class="form-floating mb-3">
+                        <input type="text" formControlName="nameTask"
+                            [attr.id]="'task' + i" id="floatingInputT" class="form-control" placeholder="Nome da tarefa"
+                            required>
+                        <label [attr.for]="'task' + i" for="floatingInputT">Tarefa</label>
+                    </div>
+                    <div>
+                        <select class="form-select mb-3" aria-label="Default select example" formControlName="member">
+                            <option selected>Selecione o membro</option>
+                            <option *ngFor="let member of filteredTeams">{{ member.members }}</option>
+                        </select>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-danger" (click)="deleteTask(i)">Remover</button>
+            </ng-container>
+        </div>
     </div>
 
     <div class="btns-new d-flex justify-content-center aling-items-center">
-        <button [routerLink]="['/projects']" (click)="save()" class="btn btn-info mr-3">Save</button>
-        <button [routerLink]="['/projects']" class="btn btn-secondary">Back</button>
+        <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i class="fa-solid fa-arrow-left"></i></button>
+        <button (click)="refresh()" class="btn btn-danger mr-3"><i class="fa-solid fa-arrows-rotate"></i></button>
+        <button  (click)="save()" class="btn btn-info"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
     </div>
 
-</section>
+</form>
