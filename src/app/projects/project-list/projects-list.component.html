@@ -6,8 +6,8 @@
 
     <div class="box-all">
         <div class="functions-projects bg-secondary-color">
-            <input [(ngModel)]="filter" class="filter-project" placeholder="Pesquise um projeto">
-            <a [routerLink]="['/projects/new']" class="btn-create">Cadastrar um projeto</a>
+            <input [(ngModel)]="filter" class="btn filter-project" placeholder="Pesquise um projeto">            
+            <a [routerLink]="['/projects/new']" class="btn btn-create"><i class="fa-solid fa-plus"></i></a>
         </div>
     </div>
 
@@ -17,20 +17,20 @@
                 <thead class="thead sticky-top">
                     <tr>
                         <th>Nome do projeto</th>
-                        <th>Status</th>
+                        <th>Equipe</th>
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody class="table">
                     <tr *ngFor="let project of filteredProjects">
                         <td>{{ project.name }}</td>
-                        <td>{{ project.status }}</td>
+                        <td>{{ project.team }}</td>
                         <td>
                             <div class="btns-action">
                                 <a [routerLink]="['/projects/info', project.id]"
-                                    class="btn btn-info mx-2">Informações</a>
+                                    class="btn bg-blue-color mx-2"><i class="fa-solid fa-info primary-color" style="width: 1rem; height: 1rem;"></i></a>
                                 <button [routerLink]="['/projects']" (click)="deleteById(project.id)"
-                                    class="btn btn-danger">Delete</button>
+                                    class="btn btn-danger"><i class="fa-solid fa-trash-can primary-color" style="width: 1rem; height: 1rem; opacity: 0.8;"></i></button>
                             </div>
                         </td>
                     </tr>

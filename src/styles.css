@@ -49,6 +49,9 @@ body{
     color: #083D93;
 }
 
+.bg-blue-off{
+    background-color: #376abd;
+}
 h2{
     font-size: 2rem;
     font-weight: 600;

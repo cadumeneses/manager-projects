@@ -46,13 +46,8 @@ input::placeholder{
 .btn-create{
     background-color: #f56e28;
     color: #ffffff;
-    width: 15rem;
-    height: 2.5rem;
     border-radius: 6.25rem;
-    border: none;
-    text-align: center; 
-    padding-top: 0.5rem;
-    text-decoration: none;
+    padding-top: .6rem;
 }
 
 .btn-create:hover{
@@ -81,11 +76,6 @@ input::placeholder{
     text-align: center;
 }
 
-.table tbody tr:hover{
-    background-color: #f56e28;
-    color: #083D93;
-}
-
 .thead{
     background-color: #083D93;
     color: #ffffff;
@@ -97,4 +87,8 @@ input::placeholder{
     display: flex;
     align-items: center;
     justify-content: center ;
+}
+
+.btn-danger:hover{
+    opacity: 1;
 }
