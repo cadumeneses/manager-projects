@@ -27,12 +27,12 @@
                         <td>{{ project.team }}</td>
                         <td>
                             <div class="btns-action">
-                                <a [routerLink]="['/projects/info', project.id]" class="btn bg-blue-color mx-2"><i
+                                <a [routerLink]="['/projects/info', project.id]" class="btn bg-blue-color info mx-2 btn-opacity" style="border-radius: 6.25rem;"><i
                                         class="fa-solid fa-info primary-color"
                                         style="width: 1rem; height: 1rem;"></i></a>
                                 <button [routerLink]="['/projects']" (click)="deleteById(project.id)"
-                                    class="btn btn-danger"><i class="fa-solid fa-trash-can primary-color"
-                                        style="width: 1rem; height: 1rem; opacity: 0.8;"></i></button>
+                                    class="btn btn-danger btn-opacity" style="border-radius: 6.25rem;"><i class="fa-solid fa-trash-can primary-color"
+                                        style="width: 1rem; height: 1rem;"></i></button>
                             </div>
                         </td>
                     </tr>

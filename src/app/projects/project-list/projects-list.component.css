@@ -93,6 +93,15 @@ input:focus::placeholder{
     justify-content: center ;
 }
 
-.btn-danger:hover{
+.btn-opacity:hover {
     opacity: 1;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+.btn-opacity {
+    opacity: 0.8;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.info:hover{
+    background-color: #083D93;
 }
