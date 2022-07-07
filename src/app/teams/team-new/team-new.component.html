@@ -1,0 +1,33 @@
+<form [formGroup]="rgFormTeam" style="width: 100vw;">
+    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height:3rem">
+        Cadastrar uma nova
+        equipe
+    </h2>
+
+    <div>
+        <div>
+            <div class="form-floating mb-3">
+                <input formControlName="name" class="form-control" type="text" id="name" placeholder="Nome da equipe">
+                <label for="name" class="form-control">Nome:</label>
+            </div>
+
+            <div>
+                <label for="btnAdd">Membro</label>
+                <button type="button" id="btnAdd" (click)="addMembers()" class="btn"><i class="fa-solid fa-plus"></i></button>
+                <ng-container formArrayName="members" *ngFor="let member of members.controls;let i = index">
+                    <div [formGroupName]="i">
+                        <input formControlName="nameMember" type="text" name="" id="" [attr.id]="'member' + i" placeholder="Nome do membro">
+                        <label [attr.for]="'member'+ i">Membro</label>
+                    </div>
+                    <button type="button" class="btn btn-danger" (click)="deleteMember(i)"><i class="fa-solid fa-trash-can"></i></button>
+                </ng-container>
+            </div>
+        </div>
+    </div>
+
+    <div class="btns-new d-flex justify-content-center aling-items-center">
+        <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i class="fa-solid fa-arrow-left"></i></button>
+        <button (click)="refresh()" class="btn btn-danger mr-3"><i class="fa-solid fa-arrows-rotate"></i></button>
+        <button (click)="save()" [disabled]="!rgFormTeam.valid" class="btn btn-info"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
+    </div>
+</form>
