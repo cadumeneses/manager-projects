@@ -32,7 +32,6 @@
 .filter-project{
     width: 15rem;
     height: 2.5rem;
-    border-radius: 6.25rem;
     border: 1px solid#f56e28;
     padding: 1rem;
     outline: none;
@@ -50,7 +49,6 @@ input:focus::placeholder{
 .btn-create{
     background-color: #f56e28;
     color: #ffffff;
-    border-radius: 6.25rem;
     padding-top: .6rem;
 }
 

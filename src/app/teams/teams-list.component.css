@@ -32,7 +32,6 @@
 .filter-team{
     width: 15rem;
     height: 2.5rem;
-    border-radius: 6.25rem;
     border: 1px solid#f56e28;
     padding: 1rem;
     outline: none;
@@ -43,16 +42,14 @@ input::placeholder{
     color: #f56e28;
 }
 
+input:focus::placeholder{
+    color:#F9FBFD;
+}
+
 .btn-create{
     background-color: #f56e28;
     color: #ffffff;
-    width: 15rem;
-    height: 2.5rem;
-    border-radius: 6.25rem;
-    border: none;
-    text-align: center; 
-    padding-top: 0.5rem;
-    text-decoration: none;
+    padding-top: .6rem;
 }
 
 .btn-create:hover{
@@ -81,11 +78,6 @@ input::placeholder{
     text-align: center;
 }
 
-.table tbody tr:hover{
-    background-color: #f56e28;
-    color: #083D93;
-}
-
 .thead{
     background-color: #083D93;
     color: #ffffff;
@@ -98,3 +90,16 @@ input::placeholder{
     align-items: center;
     justify-content: center ;
 }
+
+.btn-opacity:hover {
+    opacity: 1;
+    filter: alpha(opacity=100); /* For IE8 and earlier */
+}
+.btn-opacity {
+    opacity: 0.8;
+    filter: alpha(opacity=50); /* For IE8 and earlier */
+}
+
+.info:hover{
+    background-color: #083D93;
+}   

@@ -20,8 +20,6 @@ export class ProjectNewComponent implements OnInit {
 
   project: Project = new Project()
 
-  filteredMembersTeam: Team[] = []
-
   constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService, private fb: FormBuilder) {
   }
 
@@ -93,12 +91,6 @@ export class ProjectNewComponent implements OnInit {
       },
       error: err => console.log('Error', err)
     })
-  }
-
-  set filter(value: string) {
-    this._filterBy = value;
-    this.filteredTeams = this._teams.filter((team: Team) => team.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1);
-    this.filteredMembersTeam = this.filteredTeams.filter((member: Team) => member.members.indexOf(this._filterBy))
   }
   
 }

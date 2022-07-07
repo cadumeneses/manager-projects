@@ -6,8 +6,8 @@
 
     <div class="box-all">
         <div class="functions-teams bg-secondary-color">
-            <input [(ngModel)]="filter" class="filter-team" placeholder="Pesquise uma equipe">
-            <a [routerLink]="['/teams/new']" class="btn-create">Cadastrar uma Equipe</a>
+            <input [(ngModel)]="filter" class="btn filter-team" placeholder="Pesquise uma equipe">
+            <a [routerLink]="['/teams/new']" class="btn btn-create"><i class="fa-solid fa-plus"></i></a>
         </div>
     </div>
 
@@ -30,9 +30,12 @@
                         <td>
                             <div class="btns-action">
                                 <a [routerLink]="['/teams/info', team.id]"
-                                    class="btn btn-info mx-2">Informações</a>
+                                    class="btn bg-blue-color info mx-2 btn-opacity"><i
+                                    class="fa-solid fa-info primary-color"
+                                    style="width: 1rem; height: 1rem;"></i></a>
                                 <button [routerLink]="['/teams']" (click)="deleteById(team.id)"
-                                    class="btn btn-danger">Delete</button>
+                                    class="btn btn-danger btn-opacity"><i class="fa-solid fa-trash-can primary-color"
+                                    style="width: 1rem; height: 1rem;"></i></button>
                             </div>
                         </td>
                     </tr>

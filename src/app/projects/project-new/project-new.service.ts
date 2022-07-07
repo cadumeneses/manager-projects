@@ -25,8 +25,4 @@ export class ProjectNewService {
             return this.httpClient.post<Project>(`${this.projectUrl}`, project);
         }
     }
-
-    deleteById(id: number): Observable<any>{
-        return this.httpClient.delete<any>(`${this.projectUrl}/${id}`);
-    }
 }
