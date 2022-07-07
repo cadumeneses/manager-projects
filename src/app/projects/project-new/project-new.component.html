@@ -5,13 +5,34 @@
         projeto
     </h2>
 
-    <div class="d-flex justify-content-center aling-items-center" style="width:100vw ;">
-        <div class="wrapper-form" style="width: 50vw;">
+    <div class="d-flex justify-content-center aling-items-center" style="width:100vw; padding-top: 2rem;">
+        <div class="wrapper-form" style="width: 65vw; height: 85vh;">
 
-            <div class="form-floating mb-3">
-                <input formControlName="name" type="text" class="form-control" id="floatingInput"
-                    placeholder="Nome do projeto" required>
-                <label for="floatingInput">Nome do projeto</label>
+            <div class="btns-new d-flex justify-content-center aling-items-center">
+                <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button (click)="refresh()" class="btn btn-danger mr-3"><i class="fa-solid fa-arrows-rotate"></i></button>
+                <button (click)="save()" [disabled]="!rgForm.valid" class="btn btn-info"><i
+                        class="fa-solid fa-floppy-disk primary-color"></i></button>
+            </div>
+
+            <div class="row g-2 mb-3">
+                <div class="col-md">
+                    <div class="form-floating">
+                        <input formControlName="name" type="text" class="form-control" id="floatingInputGrid" placeholder="name@example.com"
+                            value="Project">
+                        <label for="floatingInputGrid">Nome do projeto</label>
+                    </div>
+                </div>
+                <div class="col-md">
+                    <div class="form-floating">
+                        <select class="form-select" id="floatingSelectGrid" formControlName="team">
+                            <option selected></option>
+                            <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
+                        </select>
+                        <label for="floatingSelectGrid">Equipe</label>
+                    </div>
+                </div>
             </div>
 
             <div class="form-floating mb-3">
@@ -20,40 +41,34 @@
                 <label for="floatingTextarea2">Descrição</label>
             </div>
 
-            <div>
-                <label for="team">Equipe</label>
-                <select class="form-select mb-3" aria-label="Default select example" formControlName="team" id="team">
-                    <option selected>Selecione a equipe</option>
-                    <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
-                </select>
-            </div>
-
             <label for="" class="mr-3">Tarefas</label>
             <button type="button" class="btn btn-primary" (click)="addTasks()"><i class="fa-solid fa-plus"></i></button>
             <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
-                <div [formGroupName]="i">
-                    <div class="form-floating mb-3">
-                        <input type="text" formControlName="nameTask"
-                            [attr.id]="'task' + i" id="floatingInputT" class="form-control" placeholder="Nome da tarefa"
-                            required>
-                        <label [attr.for]="'task' + i" for="floatingInputT">Tarefa</label>
-                    </div>
-                    <div>
-                        <select class="form-select mb-3" aria-label="Default select example" formControlName="member">
-                            <option selected>Selecione o membro</option>
-                            <option *ngFor="let member of filteredTeams">{{ member.members }}</option>
-                        </select>
+                <div [formGroupName]="i" class="row g-2 mb-3">
+                    <div class="row g-3 mb-3">
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <input type="text" formControlName="nameTask" [attr.id]="'task' + i" id="floatingInputGridT"
+                                class="form-control" placeholder="Nome da tarefa" required>
+                                <label [attr.for]="'task' + i" for="floatingInputGridT">Tarefa</label>
+                            </div>
+                        </div>
+                        <div class="col-md">
+                            <div class="form-floating">
+                                <select class="form-select" formControlName="member" id="floatingSelectGridT">
+                                    <option selected>Selecione o membro</option>
+                                    <option *ngFor="let member of filteredTeams" [value]="member.members">{{ member.members }}</option>
+                                </select>
+                                <label for="floatingSelectGridT">Membro da task</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1">
+                                <button type="button" class="btn btn-danger" (click)="deleteTask(i)"><i class="fa-solid fa-trash-can"></i></button>
+                        </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-danger" (click)="deleteTask(i)">Remover</button>
             </ng-container>
         </div>
-    </div>
-
-    <div class="btns-new d-flex justify-content-center aling-items-center">
-        <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i class="fa-solid fa-arrow-left"></i></button>
-        <button (click)="refresh()" class="btn btn-danger mr-3"><i class="fa-solid fa-arrows-rotate"></i></button>
-        <button (click)="save()" [disabled]="!rgForm.valid" class="btn btn-info"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
     </div>
 
 </form>
