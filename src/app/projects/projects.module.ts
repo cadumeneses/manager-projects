@@ -9,7 +9,8 @@ import { ProjectNewComponent } from "./project-new/project-new.component";
 @NgModule({
     declarations: [
         ProjectsListComponent,
-        ProjectNewComponent
+        ProjectNewComponent,
+        ProjectInfoComponent
     ],
     imports: [
         CommonModule,
@@ -23,7 +24,7 @@ import { ProjectNewComponent } from "./project-new/project-new.component";
                 path: 'projects/new', component: ProjectNewComponent
             },
             {
-                path: 'projects/info',component: ProjectInfoComponent
+                path: 'projects/info/:id',component: ProjectInfoComponent
             }
         ])
     ]

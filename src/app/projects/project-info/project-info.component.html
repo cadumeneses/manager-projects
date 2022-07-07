@@ -1,1 +1,19 @@
-<p>project-info works!</p>
+<form *ngIf="project">
+    <div>
+        <h4>{{project.name}}</h4>
+    </div>
+
+    <div>
+        <h4>{{ project.description }}</h4>
+    </div>
+
+    <div>
+        <h4>{{ project.team }}</h4>
+    </div>
+
+    <div>
+        <ul>
+            <li *ngFor="let task of project.tasks; let i= index"></li>
+        </ul>
+    </div>
+</form>
