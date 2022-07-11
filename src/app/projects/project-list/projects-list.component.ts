@@ -11,17 +11,17 @@ export class ProjectsListComponent implements OnInit {
 
   filteredProjects: Project[] = [];
 
-  _projects:  Project[] = [];
+  _projects: Project[] = [];
 
   _filterBy!: string;
 
-  constructor(private projectService: ProjectService){}
+  constructor(private projectService: ProjectService) { }
 
   ngOnInit(): void {
-    this.retrieveAll()
+    this.retrieveAll();
   }
 
-  retrieveAll(): void{
+  retrieveAll(): void {
     this.projectService.retrieveAll().subscribe({
       next: projects => {
         this._projects = projects;
@@ -31,17 +31,21 @@ export class ProjectsListComponent implements OnInit {
     })
   }
 
-  deleteById(projectId: number): void{
+  deleteById(projectId: number): void {
     this.projectService.deleteById(projectId).subscribe({
-        next: () =>{
-            console.log('Deleted with sucess');
-            this.retrieveAll();
-        },
-        error: err => console.log('Error', err)
+      next: () => {
+        console.log('Deleted with sucess');
+        this.retrieveAll();
+      },
+      error: err => console.log('Error', err)
     })
-}
+  }
 
-  set filter(value: string){
+  getListOrdered() {
+    return this.filteredProjects.sort((a,b) => (a.name < b.name) ? -1 : 1);
+  }
+
+  set filter(value: string) {
     this._filterBy = value;
     this.filteredProjects = this._projects.filter((project: Project) => project.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
   }
