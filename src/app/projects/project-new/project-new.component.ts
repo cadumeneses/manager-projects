@@ -71,6 +71,16 @@ export class ProjectNewComponent implements OnInit {
     this.tasks.controls.splice(0, this.tasks.length);
   }
 
+  // filteredTeamMember(){
+  //   console.log(this.filteredTeams)
+  //   if(!this.rgForm.value.team){
+  //     if(this.rgForm.value.team === this.filteredTeams.values.name){
+  //       return this.filteredTeams
+  //     }
+  //   }
+  //   return;
+  // }
+
   save(): void {
     if(!this.rgForm.valid){
       console.log("Não foi possível cadastrar o projeto porque o cadastro está inválido");

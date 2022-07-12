@@ -74,7 +74,7 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-floating">
-                            <select class="form-select" formControlName="member" id="floatingSelectGridT">
+                            <select class="form-select" formControlName="member" id="floatingSelectGridT" [disabled]="!rgForm.value.team">
                                 <option selected>Selecione o membro</option>
                                 <option *ngFor="let member of filteredTeams" [value]="member.members">{{
                                     member.members }}</option>
