@@ -15,9 +15,9 @@
         <div class="wrapper-table overflow-auto">
             <table class="table">
                 <thead class="thead sticky-top">
-                    <tr>
+                    <tr >
                         <th>Nome da equipe</th>
-                        <th>Membros</th>
+                        <!-- <th>Membros</th> -->
                         <th>Projeto</th>
                         <th>Ações</th>
                     </tr>
@@ -25,7 +25,7 @@
                 <tbody class="table">
                     <tr *ngFor="let team of filteredTeams">
                         <td>{{ team.name }}</td>
-                        <td>{{ team.members}}</td>
+                        <!-- <td *ngFor="let member of team.members; let i= index" [innerHTML]="member.name | uppercase | pipeTeam"><br/></td> -->
                         <td>{{ team.project_name}}</td>
                         <td>
                             <div class="btns-action">
