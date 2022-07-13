@@ -25,10 +25,13 @@
 
             <div class="d-flex justify-content-center aling-items-center my-2">
                 <div class="col-md-11">
-                    <div class="form-floating">
+                    <div class="form-floating position-relative">
                         <input formControlName="name" type="text" class="form-control" id="floatingInputGrid"
-                            placeholder="name@example.com" value="Project">
+                            placeholder="name@example.com" value="Project" name="projectName" [minlength]="4">
                         <label for="floatingInputGrid">Nome do projeto</label>
+                        <div *ngIf="rgForm.get('name')?.hasError('required')">
+                            <span style="color: red">Informar nome de projeto válido! ex: Landing Page.</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -37,7 +40,8 @@
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelectGrid" formControlName="team">
                             <option selected></option>
-                            <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
+                            <option *ngFor="let team of filteredTeams" (change)="retrieveMembers($event)"
+                            [value]="team.name">{{ team.name }}</option>
                         </select>
                         <label for="floatingSelectGrid">Equipe</label>
                     </div>
@@ -57,10 +61,10 @@
 
             <div class="d-flex aling-items-center justify-content-center col -11">
                 <div class="d-flex justify-content-between" >
-                    <div class="d-flex justify-content-center mr-2 " style="background-color: #fff; width:26rem;margin-left: 5rem;border-radius: .5rem; border: 1px solid #d8d7d7;">
-                        <label for="">Tarefas</label>
+                    <div (click)="addTasks()" class="btn btn-primary">
+                        <label for="">Tarefa</label>
+                        <i class="fa-solid fa-plus ml-3"></i>
                     </div>
-                    <button type="button" class="btn btn-primary" (click)="addTasks()"><i class="fa-solid fa-plus"></i></button>
                 </div>
             </div>
             <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
@@ -74,10 +78,9 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-floating">
-                            <select class="form-select" formControlName="member" id="floatingSelectGridT" [disabled]="!rgForm.value.team">
+                            <select class="form-select" formControlName="member" id="floatingSelectGridT">
                                 <option selected>Selecione o membro</option>
-                                <option *ngFor="let member of filteredTeams" [value]="member.members">{{
-                                    member.members }}</option>
+                                <option *ngFor="let member of _members" [value]="member">{{ member }}</option>
                             </select>
                             <label for="floatingSelectGridT">Membro da task</label>
                         </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectNewService } from "./project-new.service";
@@ -16,9 +16,9 @@ export class ProjectNewComponent implements OnInit {
 
   _teams: Team[] = [];
 
-  _filterBy!: string;
+  _members: string[] = [];
 
-  project: Project = new Project()
+  _filterBy!: string;
 
   constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService, private fb: FormBuilder) {
   }
@@ -27,8 +27,9 @@ export class ProjectNewComponent implements OnInit {
     this.retrieveAll()
   }
 
+
   rgForm = this.fb.group({
-    name: ['', Validators.required],
+    name: ['', Validators.required, Validators.minLength(3)],
     team: ['',],
     description: ['', Validators.required],
     tasks: this.fb.array([])
@@ -71,16 +72,6 @@ export class ProjectNewComponent implements OnInit {
     this.tasks.controls.splice(0, this.tasks.length);
   }
 
-  // filteredTeamMember(){
-  //   console.log(this.filteredTeams)
-  //   if(!this.rgForm.value.team){
-  //     if(this.rgForm.value.team === this.filteredTeams.values.name){
-  //       return this.filteredTeams
-  //     }
-  //   }
-  //   return;
-  // }
-
   save(): void {
     if(!this.rgForm.valid){
       console.log("Não foi possível cadastrar o projeto porque o cadastro está inválido");
@@ -102,5 +93,12 @@ export class ProjectNewComponent implements OnInit {
       error: err => console.log('Error', err)
     })
   }
+
+  retrieveMembers(event: any): void {
+    const name = event?.target?.value;
+    this._members = this.filteredTeams.filter((team: Team) => {
+      return team.name === name;
+    })[0].members as any;
+  }  
   
 }
