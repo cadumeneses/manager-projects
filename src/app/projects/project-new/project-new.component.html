@@ -38,9 +38,9 @@
             <div class="d-flex justify-content-center aling-items-center mb-2">
                 <div class="col-md-11">
                     <div class="form-floating">
-                        <select class="form-select" id="floatingSelectGrid" formControlName="team">
-                            <option selected></option>
-                            <option *ngFor="let team of filteredTeams" (change)="retrieveMembers($event)"
+                        <select class="form-select" id="floatingSelectGrid" formControlName="team" (change)="retrieveMembers($event)">
+                            <option selected ></option>
+                            <option *ngFor="let team of filteredTeams" 
                             [value]="team.name">{{ team.name }}</option>
                         </select>
                         <label for="floatingSelectGrid">Equipe</label>
@@ -79,8 +79,8 @@
                     <div class="col-md-5">
                         <div class="form-floating">
                             <select class="form-select" formControlName="member" id="floatingSelectGridT">
-                                <option selected>Selecione o membro</option>
-                                <option *ngFor="let member of _members" [value]="member">{{ member }}</option>
+                                <option selected ></option>
+                                <option *ngFor="let member of _members" [value]="member">{{ member.name }}</option>
                             </select>
                             <label for="floatingSelectGridT">Membro da task</label>
                         </div>
