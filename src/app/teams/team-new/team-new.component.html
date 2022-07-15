@@ -8,11 +8,11 @@
         <div class="bg-secondary-color"
             style="width: 80vw;height: 4rem;display: flex;justify-content: space-around;align-items: center;">
             <div class="d-flex justify-content-center aling-items-center">
-                <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i
+                <button [routerLink]="['/teams']" class="btn btn-secondary mr-3"><i
                         class="fa-solid fa-arrow-left"></i></button>
                 <button (click)="refresh()" class="btn btn-danger mr-3"><i
                         class="fa-solid fa-arrows-rotate"></i></button>
-                <button (click)="save()" [disabled]="!rgFormTeam.valid" class="btn btn-success"><i
+                <button [routerLink]="['/teams']" (click)="save()" [disabled]="!rgFormTeam.valid" class="btn btn-success"><i
                         class="fa-solid fa-floppy-disk primary-color"></i></button>
             </div>
         </div>

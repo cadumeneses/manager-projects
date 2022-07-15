@@ -13,7 +13,7 @@
                         class="fa-solid fa-arrow-left"></i></button>
                 <button (click)="refresh()" class="btn btn-danger mr-3"><i
                         class="fa-solid fa-arrows-rotate"></i></button>
-                <button (click)="save()" [disabled]="!rgForm.valid" class="btn btn-success"><i
+                <button [routerLink]="['/projects']" (click)="save()" [disabled]="!rgForm.valid" class="btn btn-success"><i
                         class="fa-solid fa-floppy-disk primary-color"></i></button>
             </div>
         </div>
