@@ -19,7 +19,6 @@ export class TeamNewComponent implements OnInit {
   constructor(private teamNewService: TeamNewService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.retrieveAll()
   }
 
   rgFormTeam = this.fb.group({
@@ -58,20 +57,11 @@ export class TeamNewComponent implements OnInit {
       console.log('Não foi possível cadastrar a equipe');
       return;
     }
-    this.teamNewService.save(this.rgFormTeam.value as any).subscribe({
+    const payLoad = this.rgFormTeam.value;
+    this.teamNewService.save(payLoad as any).subscribe({
       next: team => console.log('Save team', team),
       error: err => console.log('Error', err)
     });
-  }
-
-  retrieveAll(): void {
-    this.teamNewService.retrieveAll().subscribe({
-      next: projects => {
-        this._projects = projects;
-        this.filteredProjects = this._projects;
-      },
-      error: err => console.log('Error:', err)
-    })
   }
 
 }

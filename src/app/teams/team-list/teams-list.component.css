@@ -13,7 +13,7 @@
 }
 
 .box-all{
-    padding-top: 2rem;
+    padding-top: .5rem;
     width: 100vw;
     display: flex;
     flex-direction: column;

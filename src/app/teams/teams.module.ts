@@ -3,8 +3,8 @@ import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
 import { AppPipeModule } from "../shared/pipes/pipe.module";
-import { TeamNewComponent } from "./team-new/team-new.component";
-import { TeamsListComponent } from "./teams-list.component";
+import { TeamNewComponent    } from "./team-new/team-new.component";
+import { TeamsListComponent } from "./team-list/teams-list.component";
 
 @NgModule({
     declarations: [

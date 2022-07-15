@@ -23,7 +23,7 @@
                     </tr>
                 </thead>
                 <tbody class="table">
-                    <tr *ngFor="let team of filteredTeams">
+                    <tr *ngFor="let team of getListOrdered()">
                         <td>{{ team.name }}</td>
                         <!-- <td *ngFor="let member of team.members; let i= index" [innerHTML]="member.name | uppercase | pipeTeam"><br/></td> -->
                         <td>{{ team.project_name}}</td>

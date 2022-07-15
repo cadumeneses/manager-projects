@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { Team } from './team';
-import { TeamService } from './team.service';
+import { Team } from '../team';
+import { TeamService } from '../team.service';
 
 @Component({
   selector: 'app-teams-list',
-  templateUrl: './teams-list.component.html',
-  styleUrls: ['./teams-list.component.css']
+  templateUrl: 'teams-list.component.html',
+  styleUrls: ['teams-list.component.css']
 })
 export class TeamsListComponent implements OnInit {
 
@@ -39,6 +39,10 @@ export class TeamsListComponent implements OnInit {
         },
         error: err => console.log('Error', err)
     })
+  }
+
+  getListOrdered() {
+    return this.filteredTeams.sort((a,b) => (a.name < b.name) ? -1 : 1);
   }
 
   set filter(value: string){

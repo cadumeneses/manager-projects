@@ -24,10 +24,6 @@ nav{
     display: flex;
 }
 
-#navbar-items{
-    margin-left: 20rem;
-}
-
 #navbar-items .navbar-nav{
     display: flex;
     justify-content: center;
