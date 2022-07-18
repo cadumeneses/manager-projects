@@ -1,6 +1,5 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Project } from '../project';
 import { ProjectNewService } from "./project-new.service";
 import { Team } from "src/app/teams/team";
 import { FormBuilder, FormArray, Validators } from '@angular/forms';

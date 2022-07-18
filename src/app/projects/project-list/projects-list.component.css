@@ -80,6 +80,11 @@ input:focus::placeholder{
     text-align: center;
 }
 
+tbody tr:hover{
+    background-color: #dbdbdb;
+    font-size: 1.2rem;
+}
+
 .thead{
     background-color: #083D93;
     color: #ffffff;
@@ -95,11 +100,12 @@ input:focus::placeholder{
 
 .btn-opacity:hover {
     opacity: 1;
-    filter: alpha(opacity=100); /* For IE8 and earlier */
+    filter: alpha(opacity=100);
 }
+
 .btn-opacity {
     opacity: 0.8;
-    filter: alpha(opacity=50); /* For IE8 and earlier */
+    filter: alpha(opacity=50);
 }
 
 .info:hover{

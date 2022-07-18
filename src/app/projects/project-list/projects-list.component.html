@@ -14,7 +14,7 @@
     <div class="box-table">
         <div class="wrapper-table overflow-auto">
             <table class="table">
-                <thead class="thead sticky-top">
+                <thead class="thead sticky-top table-hover">
                     <tr>
                         <th>Nome do projeto</th>
                         <th>Equipe</th>
@@ -23,8 +23,8 @@
                 </thead>
                 <tbody class="table">
                     <tr *ngFor="let project of getListOrdered()">
-                        <td>{{ project.name | uppercase }}</td>
-                        <td>{{ project.team }}</td>
+                        <td>{{ project.name | titlecase }}</td>
+                        <td>{{ project.team | titlecase }}</td>
                         <td>
                             <div class="btns-action">
                                 <a [routerLink]="['/projects/info', project.id]" class="btn bg-blue-color info mx-2 btn-opacity"><i
