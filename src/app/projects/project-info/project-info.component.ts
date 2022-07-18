@@ -30,14 +30,11 @@ export class ProjectInfoComponent implements OnInit {
           name: [this.project.name, Validators.required],
           team: [this.project.team,],
           description: [this.project.description, Validators.required],
-          tasks: this.fb.array(project.tasks as any[]),
+          tasks: this.fb.array([]),
         })
       },
       error: err => console.log('Error:', err)
     });
-
-    console.log(this.project)
-
   }
 
   get name() {
