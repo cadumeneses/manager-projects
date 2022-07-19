@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { FormBuilder, FormArray, Validators } from '@angular/forms';
 import { ProjectNewService } from "./project-new.service";
 import { Team } from "src/app/teams/team";
-import { FormBuilder, FormArray, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-project-new',
@@ -19,7 +18,7 @@ export class ProjectNewComponent implements OnInit {
 
   _filterBy!: string;
 
-  constructor(private activeRoute: ActivatedRoute, private projectNewService: ProjectNewService, private fb: FormBuilder) {
+  constructor(private projectNewService: ProjectNewService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {

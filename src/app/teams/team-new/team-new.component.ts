@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
-import { Project } from 'src/app/projects/project';
 import { TeamNewService } from './team-new.service';
 
 @Component({
@@ -9,12 +8,6 @@ import { TeamNewService } from './team-new.service';
   styleUrls: ['./team-new.component.css']
 })
 export class TeamNewComponent implements OnInit {
-
-  filteredProjects: Project[] = [];
-
-  _projects: Project[] = [];
-
-  _filterBy!: string;
 
   constructor(private teamNewService: TeamNewService, private fb: FormBuilder) { }
 

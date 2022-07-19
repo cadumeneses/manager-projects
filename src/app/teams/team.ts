@@ -3,7 +3,7 @@ export class Team{
     name!: string;
     members!: [
         {
-            name: string
+            nameMember: string
         }
     ];
     project_name!: String;
