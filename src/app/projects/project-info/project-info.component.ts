@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormArray } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectInfoService } from './project-info.service'
@@ -68,7 +68,9 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   save(): void {
-    this.projectInfoService.save(this.project).subscribe({
+
+    const payLoad = this.rgForm.value;
+    this.projectInfoService.save(payLoad as any).subscribe({
       next: project => console.log('Save with sucess', project),
       error: err => console.log('Error:', err)
     });
