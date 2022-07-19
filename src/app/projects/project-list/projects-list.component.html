@@ -13,7 +13,7 @@
 
     <div class="box-table">
         <div class="wrapper-table overflow-auto">
-            <table class="table">
+            <table class="table table-sm">
                 <thead class="thead sticky-top table-hover">
                     <tr>
                         <th>Nome do projeto</th>
@@ -21,7 +21,7 @@
                         <th>Ações</th>
                     </tr>
                 </thead>
-                <tbody class="table">
+                <tbody class="table table-sm">
                     <tr *ngFor="let project of getListOrdered()">
                         <td>{{ project.name | titlecase }}</td>
                         <td>{{ project.team | titlecase }}</td>

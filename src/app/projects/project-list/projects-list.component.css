@@ -82,7 +82,6 @@ input:focus::placeholder{
 
 tbody tr:hover{
     background-color: #dbdbdb;
-    font-size: 1.2rem;
 }
 
 .thead{
