@@ -75,7 +75,14 @@ input:focus::placeholder{
 }
 
 .table td{
+    color: #083D93;
+    font-weight: 600;
     text-align: center;
+}
+
+tbody tr:hover{
+    background-color: #dbdbdb;
+    font-size: 1.2rem;
 }
 
 .thead{

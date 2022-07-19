@@ -15,18 +15,18 @@
         <div class="wrapper-table overflow-auto">
             <table class="table">
                 <thead class="thead sticky-top">
-                    <tr >
+                    <tr style="letter-spacing: .1rem;">
                         <th>Nome da equipe</th>
                         <!-- <th>Membros</th> -->
-                        <th>Projeto</th>
+                        <!-- <th>Projeto</th> -->
                         <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody class="table">
                     <tr *ngFor="let team of getListOrdered()">
-                        <td>{{ team.name }}</td>
+                        <td>{{ team.name | titlecase }}</td>
                         <!-- <td *ngFor="let member of team.members; let i= index" [innerHTML]="member.name | uppercase | pipeTeam"><br/></td> -->
-                        <td>{{ team.project_name}}</td>
+                        <!-- <td>{{ team.project_name}}</td> -->
                         <td>
                             <div class="btns-action">
                                 <a [routerLink]="['/teams/info', team.id]"

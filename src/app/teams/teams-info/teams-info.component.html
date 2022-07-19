@@ -1,0 +1,10 @@
+<form *ngIf="team">
+    <div>
+        <h4>{{ team.name}}</h4>
+    </div>
+    <div>
+        <ul>
+            <li *ngFor="let member of team.members"><h4>{{ member.name }}</h4></li>
+        </ul>
+    </div>
+</form>
