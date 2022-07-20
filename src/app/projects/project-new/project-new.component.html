@@ -27,7 +27,7 @@
                 <div class="col-md-11">
                     <div class="form-floating position-relative">
                         <input formControlName="name" type="text" class="form-control" id="floatingInputGrid"
-                            placeholder="Manager Project" value="Project" name="projectName" [minlength]="4">
+                            placeholder="Manager Project" value="Project" name="projectName" [minlength]="4" oninput="this.value = this.value.toLowerCase()">
                         <label for="floatingInputGrid">Nome do projeto</label>
                         <div *ngIf="rgForm.get('name')?.hasError('required')">
                             <span style="color: red">Informar nome de projeto válido! ex: Landing Page.</span>
