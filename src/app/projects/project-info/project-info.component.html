@@ -1,3 +1,65 @@
+<form [formGroup]="rgForm" *ngIf="project" style="width: 100vw;">
+
+    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color">
+        {{ project.name | titlecase }}
+    </h2>
+
+    <div class="d-flex justify-content-center aling-items center" style="padding-top: .2rem">
+        <div class="bg-secondary-color"
+            style="width: 80vw;height: 4rem;display: flex;justify-content: space-around;align-items: center;">
+            <div class="btns-new d-flex justify-content-center aling-items-center">
+                <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button [routerLink]="['/projects']" (click)="save()" [disabled]="!rgForm.valid"
+                    class="btn btn-success"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex justify-content-center aling-items-center">
+        <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 65vh;">
+
+            <div class="d-flex justify-content-center aling-items-center my-2">
+                <div class="col-md-11">
+                    <div class="form-floating position-relative">
+                        <input formControlName="name" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="Manager Project" value="Project" name="projectName">
+                            <label for="floatingInputGrid">Nome do projeto</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center aling-items-center mb-2">
+                <div class="col-md-11">
+                    <div class="form-floating mb-3">
+                        <textarea formControlName="description" class="form-control"
+                            placeholder="Project for description" id="floatingTextarea2"
+                            style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">Descrição do projeto</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-center aling-items-center my-2">
+                <div class="col-md-11">
+                    <div class="form-floating position-relative">
+                        <input formControlName="team" type="text" class="form-control" id="floatingInputGrid"
+                            value="Project" name="team">
+                        <label for="floatingInputGrid">Equipe</label>    
+                    </div>
+                </div>
+            </div>
+
+            <div formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
+                <div [formGroupName]="i">
+                    <input formControlName="nameTask" type="text" [attr.id]="'task' + i">
+                    <label [attr.for]="'task' + i"></label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
 <form *ngIf="project">
     <div>
         <h4>{{project.name}}</h4>
@@ -15,53 +77,5 @@
         <ul>
             <li *ngFor="let task of project.tasks; let i= index">{{ task.nameTask }} {{ task.member }}</li>
         </ul>
-    </div>
-</form>
-
-
-<form [formGroup]="rgForm" class="col-sm-12" *ngIf="project">
-    <div class="d-flex justify-content-center aling-items center" style="padding-top: .5rem">
-        <div class="bg-secondary-color"
-            style="width: 80vw;height: 4rem;display: flex;justify-content: space-around;align-items: center;">
-            <div class="btns-new d-flex justify-content-center aling-items-center">
-                <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i
-                        class="fa-solid fa-arrow-left"></i></button>
-                <button [routerLink]="['/projects']" (click)="save()" [disabled]="!rgForm.valid"
-                    class="btn btn-success"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
-            </div>
-        </div>
-    </div>
-
-
-
-    <div>
-        <div>
-            <div>
-                <input formControlName="name" type="text">
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <div>
-            <div>
-                <textarea formControlName="description" ></textarea>
-            </div>
-        </div>
-    </div>
-
-    <div>
-        <div>
-            <div>
-                <input formControlName="team" type="text">
-            </div>
-        </div>
-    </div>
-
-    <div formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
-        <div [formGroupName]="i">
-            <input formControlName="nameTask" type="text" [attr.id]="'task' + i">
-            <label [attr.for]="'task' + i"></label>
-        </div>
     </div>
 </form>
