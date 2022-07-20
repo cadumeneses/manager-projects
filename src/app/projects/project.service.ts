@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 
 export class ProjectService {
 
-    private projectUrl: string = 'http://localhost:3000/projects';
+    private projectUrl: string = 'https://api-new-project-manager.herokuapp.com/projects';
 
     constructor(private httpClient: HttpClient){ }
 

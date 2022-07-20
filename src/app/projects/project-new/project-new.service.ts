@@ -9,8 +9,8 @@ import { Project } from "../project";
 })
 
 export class ProjectNewService {
-    private teamUrl: string = 'http://localhost:3000/teams';
-    private projectUrl: string = 'http://localhost:3000/projects';
+    private teamUrl: string = 'https://api-new-project-manager.herokuapp.com/teams';
+    private projectUrl: string = 'https://api-new-project-manager.herokuapp.com/projects';
 
     constructor(private httpClient: HttpClient) { }
 

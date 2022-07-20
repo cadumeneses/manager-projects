@@ -8,7 +8,7 @@ import { Team } from '../team';
 })
 export class TeamsInfoService {
 
-  private teamUrl: string = 'http://localhost:3000/teams'
+  private teamUrl: string = 'https://api-new-project-manager.herokuapp.com/teams'
 
   constructor(private httpClient: HttpClient) { }
 
