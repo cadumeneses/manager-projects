@@ -39,7 +39,7 @@
     "url": "git+https://github.com/cadumeneses/manager-projects.git"
   },
   "author": "'Carlos Eduardo Meneses de Souza\"",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/cadumeneses/manager-projects/issues"
   },
