@@ -6,23 +6,44 @@ describe('create project',()=>{
         cy.get('a[href="/projects/new"]').click()
         cy.get('form h2').should('have.text', ' Cadastrar um novo projeto ')
 
-        // var adm ={
-        //     projectName: 'Teste com cypress',
-        //     team: 'barba branca',
-        //     description: 'teste automatizado utilizando a ferramenta Cypress'
-        // }
+        var adm ={
+            projectName: 'Teste com cypress',
+            team: 'barba branca',
+            description: 'teste automatizado utilizando a ferramenta Cypress',
+            tasks: [{
+                taskName: 'primeira tarefa testando com cypress',
+                member: 'caio'
+            },
+            {
+                taskname: 'cypress second',
+                member: 'andre'
+            }
+        ]
 
-        // cy.get('input[name="projectName"]').type(adm.projectName)
-        // cy.get('textarea[formControlName="description"]').type(adm.description)
-        // cy.select('option[value="barba branca"]')
+        }
 
-        cy.get('#floatingSelectGrid')
-        .then(($options)=>
-            Cypress._.map($options, ($option) => $option.innerText),
-        )
-        .then((list)=> list.filter((s)=> s != 'Selecione uma equipe'))
-        .invoke('sort')
-        .should('deep.equal', ['one piece', 'naruto', 'barbie', 'barba branca', 'senai', 'crato'])
+        cy.get('input[name="projectName"]').type(adm.projectName)
+        cy.get('textarea[formControlName="description"]').type(adm.description)
+        cy.get('select').select(adm.team)
+        
+
+
+        // cy.get('select option')
+        // .as('options')
+        // .its('length', { log: false }).then(n => {
+        //     cy.get('@options', { log: false }).then($options =>{
+        //         const randomOptionsIndex = Cypress._.random(n-1)
+        //         const randomOptionsTeam = $options[randomOptionsIndex].innerText
+        //         cy.get('select').select(randomOptionsTeam)
+        //     })
+        // })
+
+        // cy.get('#floatingSelectGrid')
+        // .then(($options)=>
+        //     Cypress._.map($options, ($option) => $option.innerText),
+        // )
+        // .invoke('sort')
+        // .should('deep.equal', ['one piece', 'naruto', 'barbie', 'barba branca', 'senai', 'crato'])
 
       })
-})
+    })
