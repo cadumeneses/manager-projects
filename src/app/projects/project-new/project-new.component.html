@@ -39,7 +39,7 @@
                 <div class="col-md-11">
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelectGrid" formControlName="team" (change)="retrieveMembers($event)">
-                            <option selected ></option>
+                            <option selected>Selecione uma equipe</option>
                             <option *ngFor="let team of filteredTeams" 
                             [value]="team.name">{{ team.name }}</option>
                         </select>
