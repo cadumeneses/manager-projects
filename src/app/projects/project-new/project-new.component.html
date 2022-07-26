@@ -77,10 +77,10 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-floating">
-                            <select class="form-select" formControlName="member" id="floatingSelectGridT" [attr.id]="'taskMember' + i">
+                            <select class="form-select" formControlName="member" [attr.id]="'taskMember' + i">
                                 <option *ngFor="let member of _members" [value]="member.nameMember">{{ member.nameMember }}</option>
                             </select>
-                            <label for="floatingSelectGridT">Membro da task</label>
+                            <label [attr.for]="'taskMember' + i">Membro da task</label>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center aling-items-center flex-column">
