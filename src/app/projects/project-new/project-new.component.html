@@ -77,8 +77,8 @@
                     </div>
                     <div class="col-md-5">
                         <div class="form-floating">
-                            <select class="form-select" formControlName="member" id="floatingSelectGridT">
-                                <option *ngFor="let member of _members" [value]="member.nameMember" [attr.id]="'taskMember' + i">{{ member.nameMember }}</option>
+                            <select class="form-select" formControlName="member" id="floatingSelectGridT" [attr.id]="'taskMember' + i">
+                                <option *ngFor="let member of _members" [value]="member.nameMember">{{ member.nameMember }}</option>
                             </select>
                             <label for="floatingSelectGridT">Membro da task</label>
                         </div>
