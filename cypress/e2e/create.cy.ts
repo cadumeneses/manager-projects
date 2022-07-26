@@ -20,7 +20,7 @@ describe('create project',()=>{
         .then(($options)=>
             Cypress._.map($options, ($option) => $option.innerText),
         )
-        .then((list)=> list.filter((s)=> s !== ''))
+        .then((list)=> list.filter((s)=> s != 'Selecione uma equipe'))
         .invoke('sort')
         .should('deep.equal', ['one piece', 'naruto', 'barbie', 'barba branca', 'senai', 'crato'])
 
