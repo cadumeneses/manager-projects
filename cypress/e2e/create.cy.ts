@@ -10,22 +10,23 @@ describe('create project',()=>{
             projectName: 'Teste com cypress',
             team: 'barba branca',
             description: 'teste automatizado utilizando a ferramenta Cypress',
-            tasks: [{
+            tasks: {
                 taskName: 'primeira tarefa testando com cypress',
-                member: 'caio'
-            },
-            {
-                taskname: 'cypress second',
-                member: 'andre'
+                member: 'caio',            
+                taskName1: 'cypress second',
+                member1: 'andre'
             }
-        ]
+            
 
         }
 
         cy.get('input[name="projectName"]').type(adm.projectName)
         cy.get('textarea[formControlName="description"]').type(adm.description)
         cy.get('select').select(adm.team)
-        
+
+        cy.get('#btnAddTask').click()
+        cy.get('#task0').type(adm.tasks.taskName)
+        cy.get('select[formControlName="member"]')      
 
 
         // cy.get('select option')
