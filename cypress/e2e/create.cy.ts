@@ -26,7 +26,15 @@ describe('create project',()=>{
 
         cy.get('#btnAddTask').click()
         cy.get('#task0').type(adm.tasks.taskName)
-        cy.get('select[formControlName="member"]')      
+        cy.get('#taskMember0').select(adm.tasks.member)
+
+        cy.get('#btnAddTask').click()
+        cy.get('#task1').type(adm.tasks.taskName1)
+        cy.get('#taskMember1').select(adm.tasks.member1)  
+        
+        cy.get('button.btn.btn-success').click()
+
+        cy.get('td').should('have.text', 'Teste com cypress')
 
 
         // cy.get('select option')
