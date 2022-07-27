@@ -9,5 +9,16 @@
       "taskName1": "cypress second",
       "member1": "andre"
     }
+  },
+  "nameinvalid":{
+    "projectName": "",
+    "team": "barba branca",
+    "description": "teste automatizado utilizando a ferramenta Cypress",
+    "tasks": {
+      "taskName": "primeira tarefa testando com cypress",
+      "member": "caio",
+      "taskName1": "cypress second",
+      "member1": "andre"
+    }
   }
 }
