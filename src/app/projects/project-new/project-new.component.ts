@@ -27,7 +27,7 @@ export class ProjectNewComponent implements OnInit {
 
 
   rgForm = this.fb.group({
-    name: ['', Validators.required, Validators.minLength(3)],
+    name: ['', Validators.required,],
     team: ['',],
     description: ['', Validators.required],
     tasks: this.fb.array([])
