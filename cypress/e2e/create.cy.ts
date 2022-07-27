@@ -1,10 +1,7 @@
 describe('create project',()=>{
     it('User create project', () => {
-        cy.viewport(1920,1280)
-        cy.visit('https://manager-projects.vercel.app/projects')
+        
 
-        cy.get('a[href="/projects/new"]').click()
-        cy.get('form h2').should('have.text', ' Cadastrar um novo projeto ')
 
         var adm ={
             projectName: 'Teste com cypress',
@@ -20,19 +17,8 @@ describe('create project',()=>{
 
         }
 
-        cy.get('input[name="projectName"]').type(adm.projectName)
-        cy.get('textarea[formControlName="description"]').type(adm.description)
-        cy.get('select').select(adm.team)
-
-        cy.get('#btnAddTask').click()
-        cy.get('#task0').type(adm.tasks.taskName)
-        cy.get('#taskMember0').select(adm.tasks.member)
-
-        cy.get('#btnAddTask').click()
-        cy.get('#task1').type(adm.tasks.taskName1)
-        cy.get('#taskMember1').select(adm.tasks.member1)  
+          
         
-        cy.get('button.btn.btn-success').click()
 
         cy.get('td').should('have.text', 'Teste com cypress')
 
