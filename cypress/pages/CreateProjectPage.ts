@@ -1,5 +1,4 @@
-
-export class CreateProjectPage{
+class CreateProjectPage{
 
     go(){
         cy.viewport(1920,1280)
@@ -27,4 +26,10 @@ export class CreateProjectPage{
         cy.get('button.btn.btn-success').click()
     }
 
+    valiedCreate(){
+        cy.get(':nth-child(8) > :nth-child(1)').should('have.text', 'Teste Com Cypress')
+    }
+
 }
+
+export default new CreateProjectPage;

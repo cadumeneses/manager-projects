@@ -1,26 +1,21 @@
-describe('create project',()=>{
-    it('User create project', () => {
-        
+import createproject from "../pages/CreateProjectPage"
 
+describe('create project', () => {
 
-        var adm ={
-            projectName: 'Teste com cypress',
-            team: 'barba branca',
-            description: 'teste automatizado utilizando a ferramenta Cypress',
-            tasks: {
-                taskName: 'primeira tarefa testando com cypress',
-                member: 'caio',            
-                taskName1: 'cypress second',
-                member1: 'andre'
-            }
-            
+    beforeEach(function () {
+        cy.fixture('project').then(function (p) {
+            this.project = p
+        })
+    })
 
-        }
+    it('User create project', function () {
 
-          
-        
+        createproject.go()
+        createproject.fillForm(this.project.createproject)
+        createproject.submit()
+        createproject.valiedCreate()
 
-        cy.get('td').should('have.text', 'Teste com cypress')
+        //cy.get('td').should('have.text', 'Teste com cypress')
 
 
         // cy.get('select option')
@@ -40,5 +35,5 @@ describe('create project',()=>{
         // .invoke('sort')
         // .should('deep.equal', ['one piece', 'naruto', 'barbie', 'barba branca', 'senai', 'crato'])
 
-      })
     })
+})
