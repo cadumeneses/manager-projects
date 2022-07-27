@@ -1,0 +1,11 @@
+{
+    "createteam":{
+        "teamName": "teste de cadastro de equipe",
+        "members": {
+            "nameMember": "ana maria",
+            "nameMember1": "vitoria",
+            "nameMember2": "maria clara",
+            "nameMember3": "carlos eduardo"
+        }
+    }
+}
