@@ -30,7 +30,7 @@
                             placeholder="Manager Project" value="Project" name="projectName" [minlength]="4" oninput="this.value = this.value.toLowerCase()">
                         <label for="floatingInputGrid">Nome do projeto</label>
                         <div *ngIf="rgForm.get('name')?.hasError('required')">
-                            <span style="color: red">Informar nome de projeto válido! ex: Landing Page.</span>
+                            <span style="color: red" class="invalid">Informar nome de projeto válido! ex: Landing Page.</span>
                         </div>
                     </div>
                 </div>
