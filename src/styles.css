@@ -60,3 +60,16 @@ h2{
 h2:hover{
     color: #083D93;
 }
+
+.overflow-auto::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.overflow-auto::-webkit-scrollbar-track {
+    background: #ffffff;
+}
+
+.overflow-auto::-webkit-scrollbar-thumb {
+    background-color: #f56e28;
+}
