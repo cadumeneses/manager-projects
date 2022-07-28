@@ -14,6 +14,7 @@ export class TeamsInfoComponent implements OnInit {
   team!: Team;
 
   rgFormTeam = this.fb.group({
+    id:[0],
     name: ['', Validators.required],
     members: this.fb.array([])
   })
@@ -25,6 +26,7 @@ export class TeamsInfoComponent implements OnInit {
       next: team => {
         this.team = team;
         this.rgFormTeam = this.fb.group({
+          id: [this.team.id],
           name: [this.team.name, Validators.required],
           members: this.fb.array([])
         });

@@ -8,14 +8,13 @@ import { Project } from "../project";
 })
 
 export class ProjectInfoService {
-    
+
     private projectUrl: string = 'https://api-new-project-manager.herokuapp.com/projects';
 
     constructor(private httpClient: HttpClient) { }
 
     save(project: Project): Observable<Project> {
-        console.log(project)
-            return this.httpClient.put<Project>(`${this.projectUrl}/${project.id}`, project);
+        return this.httpClient.put<Project>(`${this.projectUrl}/${project.id}`, project);
     }
 
     retrieveById(id: number): Observable<Project> {
