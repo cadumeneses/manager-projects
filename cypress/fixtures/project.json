@@ -20,5 +20,10 @@
       "taskName1": "cypress second",
       "member1": "andre"
     }
+  },
+  "updateproject":{
+    "projectName": "test of project update with cypress",
+    "team": "senai",
+    "description": "test of project update with cypress. its ok! Thanks friend"
   }
 }

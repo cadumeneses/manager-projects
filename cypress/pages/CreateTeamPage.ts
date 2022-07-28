@@ -4,7 +4,7 @@ class CreateTeamPage{
         cy.viewport(1920, 1080)
         cy.visit('https://manager-projects.vercel.app/teams/new')
 
-        cy.get('a[href="/teams"]')
+        cy.get('a[href="/teams"]').click()
         cy.get('form h2').should('have.text',' Cadastrar uma nova equipe ')
     }
 
