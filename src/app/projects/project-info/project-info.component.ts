@@ -14,6 +14,7 @@ export class ProjectInfoComponent implements OnInit {
   project!: Project;
 
   rgForm = this.fb.group({
+    id: [0],
     name: ['', Validators.required],
     team: ['',],
     description: ['', Validators.required],
@@ -27,6 +28,7 @@ export class ProjectInfoComponent implements OnInit {
       next: project => {
         this.project = project
         this.rgForm = this.fb.group({
+          id: [this.project.id],
           name: [this.project.name, Validators.required],
           team: [this.project.team,],
           description: [this.project.description, Validators.required],

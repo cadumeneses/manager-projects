@@ -14,11 +14,8 @@ export class ProjectInfoService {
     constructor(private httpClient: HttpClient) { }
 
     save(project: Project): Observable<Project> {
-        if (project.id) {
+        console.log(project)
             return this.httpClient.put<Project>(`${this.projectUrl}/${project.id}`, project);
-        }else{
-            return this.httpClient.post<Project>(`${this.projectUrl}`, project);
-        }
     }
 
     retrieveById(id: number): Observable<Project> {
