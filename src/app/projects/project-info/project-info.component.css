@@ -1,3 +1,8 @@
+h2{
+    font-weight: 600;
+    font-size: 2rem;
+}
+
 .break-line{
     white-space: pre-wrap;
 }
