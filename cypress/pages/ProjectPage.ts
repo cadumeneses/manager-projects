@@ -16,6 +16,13 @@ class CreateProjectPage{
         cy.get('form h2').should('have.text', ' Dia 28 ')
     }
 
+    goDelete(){
+        cy.viewport(1920,1280)
+        cy.visit('https://manager-projects.vercel.app/projects')
+
+        cy.get('button[id="7"]').click()
+    }
+
     fillForm(project: any){
         cy.get('input[name="projectName"]').type(project.projectName)
         cy.get('textarea[formControlName="description"]').type(project.description)
@@ -62,14 +69,19 @@ class CreateProjectPage{
         cy.get('button.btn.btn-success').click()
     }
 
-    valiedCreate(){
+    validCreate(){
         cy.reload(true)
-        cy.get(':nth-child(8) > :nth-child(1)').should('have.text', 'Teste Com Cypress')
+        cy.contains('Teste Com Cypress')
     }
 
     validUpdate(){
         cy.reload()
         cy.contains('Test Of Project Update With Cypress')
+    }
+
+    validDelete(){
+        cy.reload()
+        cy.contains('Test Of Project Update With Cypress').should('not.exist')
     }
 
     invalidName(){

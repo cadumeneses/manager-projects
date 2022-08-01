@@ -1,4 +1,4 @@
-import createproject from "../pages/CreateProjectPage"
+import createproject from "../pages/ProjectPage"
 
 describe('create project', () => {
 
@@ -13,7 +13,7 @@ describe('create project', () => {
         createproject.go()
         createproject.fillForm(this["project"].createproject)
         createproject.submit()
-        createproject.valiedCreate()
+        createproject.validCreate()
 
     })
 

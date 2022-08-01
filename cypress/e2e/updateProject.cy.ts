@@ -1,4 +1,4 @@
-import createproject from "../pages/CreateProjectPage"
+import createproject from "../pages/ProjectPage"
 
 describe('update project', ()=>{
     beforeEach(function () {
