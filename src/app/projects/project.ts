@@ -2,14 +2,10 @@ export class Project {
     id!: number;
     name!: string;
     team!: string;
-    tasks?: [
-        {
-            nameTask: string,
-            member: string,
-            dateInit: Date,
-            dateEnd: Date
-        }
-    ];
+    tasks?: Array<{
+        nameTask?: string,
+        member?: string,
+    }>;
     status?: string;
     description!: string;
 }

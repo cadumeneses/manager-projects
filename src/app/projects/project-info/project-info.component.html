@@ -1,7 +1,7 @@
 <form [formGroup]="rgForm" *ngIf="project" style="width: 100vw;">
 
-    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height: 3rem;">
-        Projeto: {{ project.name | titlecase }}
+    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color">
+        {{ project.name | titlecase }}
     </h2>
 
     <div class="d-flex justify-content-center aling-items center" style="padding-top: .2rem">
@@ -17,14 +17,14 @@
     </div>
 
     <div class="d-flex justify-content-center aling-items-center">
-        <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 60vh;">
+        <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 65vh;">
 
             <div class="d-flex justify-content-center aling-items-center my-2">
                 <div class="col-md-11">
                     <div class="form-floating position-relative">
                         <input formControlName="name" type="text" class="form-control" id="floatingInputGrid"
                             placeholder="Manager Project" value="Project" name="projectName">
-                            <label for="floatingInputGrid">Nome do projeto</label>
+                        <label for="floatingInputGrid">Nome do projeto</label>
                     </div>
                 </div>
             </div>
@@ -35,7 +35,7 @@
                         <textarea formControlName="description" class="form-control"
                             placeholder="Project for description" id="floatingTextarea2"
                             style="height: 100px"></textarea>
-                            <label for="floatingTextarea2">Descrição do projeto</label>
+                        <label for="floatingTextarea2">Descrição do projeto</label>
                     </div>
                 </div>
             </div>
@@ -45,24 +45,45 @@
                     <div class="form-floating position-relative">
                         <input formControlName="team" type="text" class="form-control" id="floatingInputGrid"
                             value="Project" name="team">
-                        <label for="floatingInputGrid">Equipe</label>    
+                        <label for="floatingInputGrid">Equipe</label>
                     </div>
                 </div>
             </div>
 
-            <div formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
-                <div [formGroupName]="i">
-                    <input formControlName="nameTask" type="text" [attr.id]="'task' + i">
-                    <label [attr.for]="'task' + i"></label>
-                </div>
+            <div>
+                <button (click)="addTasks()">+ task</button>
             </div>
+            <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
+                <div [formGroupName]="i" class="d-flex justify-content-center aling-items-center my-2">
+                    <div class="col-md-5">
+                        <div class="form-floating">
+                            <input type="text" formControlName="nameTask" [attr.id]="'task' + i" id="floatingInputGridT"
+                                class="form-control" placeholder="Nome da tarefa" required>
+                            <label [attr.for]="'task' + i" for="floatingInputGridT">Tarefa</label>
+                        </div>
+                    </div>
+                    <div class="col-md-5">
+                        <div class="form-floating">
+                            <input type="text" formControlName="member" [attr.id]="'nameMember' + i" id="floatingInputGridT"
+                                class="form-control" placeholder="Nome do membro" required>
+                            <label [attr.for]="'nameMember' + i" for="floatingInputGridT">Membro</label>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-center aling-items-center flex-column">
+                        <div class="col-md-1">
+                            <button type="button" class="btn btn-danger" (click)="deleteTask(i)"><i
+                                    class="fa-solid fa-trash-can"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
         </div>
     </div>
 </form>
 
-<form *ngIf="project" style="padding-left:10rem;padding-bottom: 10rem;">
+<form *ngIf="project" style="padding-left:10rem;padding-boFttom: 10rem;">
     <div>
-        <h4>{{project.name}}</h4>
+        <h4>{{ project.name }}</h4>
     </div>
 
     <div>

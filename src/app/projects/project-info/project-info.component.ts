@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectInfoService } from './project-info.service'
@@ -9,21 +9,22 @@ import { ProjectInfoService } from './project-info.service'
   templateUrl: './project-info.component.html',
   styleUrls: ['./project-info.component.css']
 })
+
 export class ProjectInfoComponent implements OnInit {
 
+  rgForm!: FormGroup;
   project!: Project;
 
-  rgForm = this.fb.group({
-    id: [0],
-    name: ['', Validators.required],
-    team: ['',],
-    description: ['', Validators.required],
-    tasks: this.fb.array([]),
-  })
+  get tasks() {
+    return this.rgForm.get('tasks') as FormArray;
+  }
 
-  constructor(private activatedRoute: ActivatedRoute, private projectInfoService: ProjectInfoService, private fb: FormBuilder) { }
+  constructor(private activatedRoute: ActivatedRoute,
+    private projectInfoService: ProjectInfoService,
+    private fb: FormBuilder) { }
 
   ngOnInit(): void {
+
     this.projectInfoService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
       next: project => {
         this.project = project
@@ -32,8 +33,9 @@ export class ProjectInfoComponent implements OnInit {
           name: [this.project.name, Validators.required],
           team: [this.project.team,],
           description: [this.project.description, Validators.required],
-          tasks: this.fb.array([]),
         })
+        this.rgForm.setControl('tasks', this.fb.array(this.project.tasks!))
+        console.log(this.tasks.controls)
       },
       error: err => console.log('Error:', err)
     });
@@ -51,10 +53,6 @@ export class ProjectInfoComponent implements OnInit {
     return this.rgForm.get('team')
   }
 
-  get tasks() {
-    return this.rgForm.get('tasks') as FormArray;
-  }
-
   addTasks() {
     const taskFormGroup = this.fb.group({
       nameTask: '',
@@ -63,14 +61,11 @@ export class ProjectInfoComponent implements OnInit {
     this.tasks.push(taskFormGroup)
   }
 
-  deleteTask(indice: number) {
-    (
+  deleteTask(indice: number) {(
       this.tasks.removeAt(indice)
-    )
-  }
+    )}
 
   save(): void {
-
     const payLoad = this.rgForm.value;
     this.projectInfoService.save(payLoad as any).subscribe({
       next: project => console.log('Save with sucess', project),
