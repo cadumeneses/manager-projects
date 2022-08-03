@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray, FormGroup, FormControl } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectInfoService } from './project-info.service'
@@ -13,6 +13,7 @@ import { ProjectInfoService } from './project-info.service'
 export class ProjectInfoComponent implements OnInit {
 
   rgForm!: FormGroup;
+  
   project!: Project;
 
   get tasks() {
@@ -63,11 +64,9 @@ export class ProjectInfoComponent implements OnInit {
     this.tasks.push(taskFormGroup)
   }
 
-  deleteTask(indice: number) {
-    (
-      this.tasks.removeAt(indice)
-    )
-  }
+  deleteTask(indice: number) {(
+    this.tasks.removeAt(indice)
+  )}
 
   save(): void {
     const payLoad = this.rgForm.value;
