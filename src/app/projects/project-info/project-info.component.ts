@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormArray, FormGroup, FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Project } from '../project';
 import { ProjectInfoService } from './project-info.service'
@@ -34,8 +34,10 @@ export class ProjectInfoComponent implements OnInit {
           team: [this.project.team,],
           description: [this.project.description, Validators.required],
         })
-        this.rgForm.setControl('tasks', this.fb.array(this.project.tasks!))
-        console.log(this.tasks.controls)
+        this.rgForm.setControl('tasks', this.fb.array(this.project.tasks!.map(({ nameTask, member }) => this.fb.group({
+          nameTask,
+          member
+        }))))
       },
       error: err => console.log('Error:', err)
     });
@@ -61,9 +63,11 @@ export class ProjectInfoComponent implements OnInit {
     this.tasks.push(taskFormGroup)
   }
 
-  deleteTask(indice: number) {(
+  deleteTask(indice: number) {
+    (
       this.tasks.removeAt(indice)
-    )}
+    )
+  }
 
   save(): void {
     const payLoad = this.rgForm.value;
