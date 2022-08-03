@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Team } from '../team';
 import { TeamsInfoService } from './teams-info.service';
@@ -13,11 +13,11 @@ export class TeamsInfoComponent implements OnInit {
 
   team!: Team;
 
-  rgFormTeam = this.fb.group({
-    id:[0],
-    name: ['', Validators.required],
-    members: this.fb.array([])
-  })
+  rgFormTeam!: FormGroup;
+
+  get members(){
+    return this.rgFormTeam.get('members') as FormArray;
+  }
 
   constructor(private activatedRoute: ActivatedRoute, private teamsInfoService: TeamsInfoService, private fb: FormBuilder) { }
 
@@ -28,8 +28,10 @@ export class TeamsInfoComponent implements OnInit {
         this.rgFormTeam = this.fb.group({
           id: [this.team.id],
           name: [this.team.name, Validators.required],
-          members: this.fb.array([])
-        });
+        })
+        this.rgFormTeam.setControl('members', this.fb.array(this.team.members!.map(({nameMember}) => this.fb.group({
+          nameMember
+        }))))
       },
       error: err => console.log('Error:', err)
     })
@@ -37,10 +39,6 @@ export class TeamsInfoComponent implements OnInit {
 
   get name(){
     return this.rgFormTeam.get('name');
-  }
-
-  get members(){
-    return this.rgFormTeam.get('members') as FormArray;
   }
 
   addMembers(){
@@ -55,7 +53,8 @@ export class TeamsInfoComponent implements OnInit {
   }
 
   save(): void{
-    this.teamsInfoService.save(this.team).subscribe({
+    const payLoadTeam = this.rgFormTeam.value;
+    this.teamsInfoService.save(payLoadTeam as any).subscribe({
       next: team => console.log('Save with sucess', team),
       error: err => console.log('Error:', err)
     })

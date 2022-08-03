@@ -1,10 +1,53 @@
-<form *ngIf="team">
-    <div>
-        <h4>{{ team.name}}</h4>
+<form [formGroup]="rgFormTeam" *ngIf="team" style="width: 100vw;">
+
+    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color">{{ team.name |
+        titlecase}}</h2>
+
+    <div class="d-flex justify-content-center aling-items center" style="padding-top: .2rem">
+        <div class="bg-secondary-color"
+            style="width: 80vw;height: 4rem;display: flex;justify-content: space-around;align-items: center;">
+            <div class="btns-new d-flex justify-content-center aling-items-center">
+                <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i
+                        class="fa-solid fa-arrow-left"></i></button>
+                <button [routerLink]="['/teams']" (click)="save()" [disabled]="!rgFormTeam.valid"
+                    class="btn btn-success mr-3"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
+                    <div (click)="addMembers()" class="btn"
+                        style="background-color: #f56e28; color: #ffffff; padding-top: .6rem;">
+                        <i class="fa-solid fa-plus"></i>
+                        <label class="ml-3" for="">Membro</label>
+                    </div>
+            </div>
+        </div>
     </div>
-    <div>
-        <ul>
-            <li *ngFor="let member of team.members"><h4>{{ member.nameMember }}</h4></li>
-        </ul>
+
+    <div class="d-flex justify-content-center aling-items-center">
+        <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 65vh;">
+
+            <div class="d-flex justify-content-center aling-items-center my-2">
+                <div class="col-md-11">
+                    <div class="form-floating position-relative">
+                        <input formControlName="name" type="text" class="form-control" id="floatingInputGrid"
+                            placeholder="Team name" value="Team" name="teamName">
+                        <label for="floatingInputGrid">Nome da equipe</label>
+                    </div>
+                </div>
+            </div>
+
+            <ng-container formArrayName="members" *ngFor="let member of members.controls; let i = index">
+
+                <div [formGroupName]="i" class="d-flex justify-content-center aling-items-center my-2">
+                    <div class="col-md-10">
+                            <div class="form-floating">
+                                <input type="text" formControlName="nameMember" [attr.id]="'member' + i" id="floatingInputGrid" class="form-control">
+                                <label [attr.for]="'member' + i" for="floatingInputGrid"> Membro {{ i }}</label>
+                        </div>
+                    </div>
+                </div>
+
+            </ng-container>
+
+        </div>
     </div>
+
+
 </form>
