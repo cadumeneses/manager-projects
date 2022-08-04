@@ -47,7 +47,7 @@ export class ProjectsListComponent implements OnInit {
 
   set filter(value: string) {
     this._filterBy = value;
-    this.filteredProjects = this._projects.filter((project: Project) => project.name.toLocaleLowerCase().indexOf(this._filter By.toLocaleLowerCase()) > -1)
+    this.filteredProjects = this._projects.filter((project: Project) => project.name.toLocaleLowerCase().indexOf(this._filterBy.toLocaleLowerCase()) > -1)
   }
 
 }
