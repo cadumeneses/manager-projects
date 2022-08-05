@@ -2,6 +2,11 @@
     overflow-x: hidden;
 }
 
+h2{
+    font-size: 2rem;
+    font-weight: 600;
+}
+
 .project-list{
     width: 100vw;
 }

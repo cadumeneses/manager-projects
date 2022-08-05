@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { Team } from 'src/app/teams/team';
 import { Project } from '../project';
 import { ProjectInfoService } from './project-info.service'
 
@@ -16,6 +17,12 @@ export class ProjectInfoComponent implements OnInit {
   
   project!: Project;
 
+  filteredTeams: Team[] = [];
+
+  _teams: Team[] = [];
+
+  _members: any[] = [];
+
   get tasks() {
     return this.rgForm.get('tasks') as FormArray;
   }
@@ -26,6 +33,7 @@ export class ProjectInfoComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.retrieveTeamAll()
     this.projectInfoService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
       next: project => {
         this.project = project
@@ -74,6 +82,23 @@ export class ProjectInfoComponent implements OnInit {
       next: project => console.log('Save with sucess', project),
       error: err => console.log('Error:', err)
     });
+  }
+
+  retrieveTeamAll(): void {
+    this.projectInfoService.retrieveTeamAll().subscribe({
+      next: teams => {
+        this._teams = teams;
+        this.filteredTeams = this._teams;
+      },
+      error: err => console.log('Error', err)
+    })
+  }
+
+  retrieveMembers(event: any): void {
+    const name = event?.target?.value;
+    this._members = this.filteredTeams.filter((team: Team) => {
+      return team.name === name;
+    })[0].members as any;
   }
 
 }

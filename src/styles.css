@@ -52,10 +52,6 @@ body{
 .bg-blue-off{
     background-color: #376abd;
 }
-h2{
-    font-size: 2rem;
-    font-weight: 600;
-}
 
 h2:hover{
     color: #083D93;
