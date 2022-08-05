@@ -20,6 +20,13 @@
     <div class="d-flex justify-content-center aling-items-center">
         <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 60vh;">
 
+            <div class="d-flex justify-content-center aling-items-center">
+                <div class="col-md-11">
+                    <h5 class="colors-primary py-3"
+                        style="width: 30rem;height: 3rem; font-weight: 600; font-size: 1.5rem;">Dados de cadastro:</h5>
+                </div>
+            </div>
+
             <div class="d-flex justify-content-center aling-items-center my-2">
                 <div class="col-md-11">
                     <div class="form-floating position-relative">
@@ -46,8 +53,7 @@
                     <div class="form-floating">
                         <select class="form-select" id="floatingSelectGrid" formControlName="team"
                             (change)="retrieveMembers($event)">
-                            <option *ngFor="let team of filteredTeams" 
-                            [value]="team.name">{{ team.name }}</option>
+                            <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
                         </select>
                         <label for="floatingSelectGrid">Equipe</label>
                     </div>

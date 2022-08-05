@@ -13,24 +13,32 @@
                         class="fa-solid fa-arrow-left"></i></button>
                 <button (click)="refresh()" class="btn btn-danger mr-3"><i
                         class="fa-solid fa-arrows-rotate"></i></button>
-                <button [routerLink]="['/projects']" (click)="save()" [disabled]="!rgForm.valid" class="btn btn-success"><i
-                        class="fa-solid fa-floppy-disk primary-color"></i></button>
+                <button [routerLink]="['/projects']" (click)="save()" [disabled]="!rgForm.valid"
+                    class="btn btn-success"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
             </div>
         </div>
     </div>
 
-
     <div class="d-flex justify-content-center aling-items-center">
         <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 60vh;">
+
+            <div class="d-flex justify-content-center aling-items-center">
+                <div class="col-md-11">
+                    <h5 class="colors-primary py-3"
+                        style="width: 30rem;height: 3rem; font-weight: 600; font-size: 1.5rem;">Dados de cadastro:</h5>
+                </div>
+            </div>
 
             <div class="d-flex justify-content-center aling-items-center my-2">
                 <div class="col-md-11">
                     <div class="form-floating position-relative">
                         <input formControlName="name" type="text" class="form-control" id="floatingInputGrid"
-                            placeholder="Manager Project" value="Project" name="projectName" [minlength]="4" oninput="this.value = this.value.toLowerCase()">
+                            placeholder="Manager Project" value="Project" name="projectName" [minlength]="4"
+                            oninput="this.value = this.value.toLowerCase()">
                         <label for="floatingInputGrid">Nome do projeto</label>
                         <div *ngIf="rgForm.get('name')?.hasError('required')">
-                            <span style="color: red" class="invalid">Informar nome de projeto válido! ex: Landing Page.</span>
+                            <span style="color: red" class="invalid">Informar nome de projeto válido! ex: Landing
+                                Page.</span>
                         </div>
                     </div>
                 </div>
@@ -38,9 +46,9 @@
             <div class="d-flex justify-content-center aling-items-center mb-2">
                 <div class="col-md-11">
                     <div class="form-floating">
-                        <select class="form-select" id="floatingSelectGrid" formControlName="team" (change)="retrieveMembers($event)">
-                            <option *ngFor="let team of filteredTeams" 
-                            [value]="team.name">{{ team.name }}</option>
+                        <select class="form-select" id="floatingSelectGrid" formControlName="team"
+                            (change)="retrieveMembers($event)">
+                            <option *ngFor="let team of filteredTeams" [value]="team.name">{{ team.name }}</option>
                         </select>
                         <label for="floatingSelectGrid">Equipe</label>
                     </div>
@@ -49,7 +57,7 @@
 
             <div class="d-flex justify-content-center aling-items-center mb-2">
                 <div class="col-md-11">
-                    <div class="form-floating mb-3">
+                    <div class="form-floating">
                         <textarea formControlName="description" class="form-control"
                             placeholder="Project for description" id="floatingTextarea2"
                             style="height: 100px"></textarea>
@@ -58,14 +66,26 @@
                 </div>
             </div>
 
-            <div class="d-flex aling-items-center justify-content-center col-11 ml-5">
-                <div class="d-flex justify-content-between" >
-                    <div (click)="addTasks()" class="btn" style="background-color: #f56e28; color: #ffffff; padding-top: .6rem;" id="btnAddTask">
-                        <i class="fa-solid fa-plus "></i>
-                        <label class="ml-3">Tarefa</label>
+            <div class="d-flex justify-content-center aling-items-center">
+                <div class="col-md-11">
+                    <div class="d-flex justify-content-around aling-items-center"
+                        style="background-color: #ffffff;border: 1px solid #ced4da;border-radius: 0.375rem;">
+                        <h5 class="colors-primary py-3"
+                            style="width: 30rem;height: 3rem; font-weight: 600; font-size: 1.2rem;">Tarefas
+                            do
+                            projeto:</h5>
+                        <div class="py-2">
+                            <div (click)="addTasks()" class="btn"
+                                style="background-color: #f56e28; color: #ffffff; padding-top: .6rem; height: 3rem;"
+                                id="btnAddTask">
+                                <i class="fa-solid fa-plus "></i>
+                                <label class="ml-3">Tarefa</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+
             <ng-container formArrayName="tasks" *ngFor="let task of tasks.controls; let i=index">
                 <div [formGroupName]="i" class="d-flex justify-content-center aling-items-center my-2">
                     <div class="col-md-5">
@@ -78,7 +98,8 @@
                     <div class="col-md-5">
                         <div class="form-floating">
                             <select class="form-select" formControlName="member" [attr.id]="'taskMember' + i">
-                                <option *ngFor="let member of _members" [value]="member.nameMember">{{ member.nameMember }}</option>
+                                <option *ngFor="let member of _members" [value]="member.nameMember">{{ member.nameMember
+                                    }}</option>
                             </select>
                             <label [attr.for]="'taskMember' + i">Membro da task</label>
                         </div>
