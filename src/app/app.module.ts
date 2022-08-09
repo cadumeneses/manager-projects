@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { ComponentsModule } from './components/components.module';
 import { CoreModule } from './core/core.module';
 import { Error404Component } from './pages/error-404/error-404.component';
 import { ProjectsModule } from "./projects/projects.module";
@@ -13,7 +14,7 @@ import { TeamsModule } from './teams/teams.module';
 @NgModule({
   declarations: [
     AppComponent,
-    Error404Component
+    Error404Component,
   ],
   imports: [
     BrowserModule,
@@ -21,6 +22,7 @@ import { TeamsModule } from './teams/teams.module';
     ProjectsModule,
     TeamsModule,
     CoreModule,
+    ComponentsModule,
     HttpClientModule,
     RouterModule.forRoot([
       {
