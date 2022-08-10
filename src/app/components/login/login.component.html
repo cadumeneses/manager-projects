@@ -1,7 +1,7 @@
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+<form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
 
     <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height:3rem">
-        Sign Up
+        Login
     </h2>
 
     <div class="d-flex justify-content-center aling-items-center">
@@ -26,7 +26,7 @@
             </div>
 
             <div class="d-flex justify-content-center aling-items-center">
-                <button [disabled]="!loginForm.valid"
+                <button type="submit" [disabled]="!loginForm.valid"
                     class="btn btn-success"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
             </div>
 
