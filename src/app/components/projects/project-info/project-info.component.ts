@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Team } from 'src/app/models/team';
-import { Project } from '../../../models/project';
+import { Team } from 'src/app/models/Team';
+import { Project } from '../../../models/Project';
 import { ProjectService } from 'src/app/services/project.service'
 
 @Component({

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, Validators } from '@angular/forms';
 import { ProjectService } from "src/app/services/project.service";
-import { Team } from "src/app/models/team";
+import { Team } from "src/app/models/Team";
 
 @Component({
   selector: 'app-project-new',

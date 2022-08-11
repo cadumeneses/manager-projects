@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Team } from '../../../models/team';
+import { Team } from '../../../models/Team';
 import { TeamService } from 'src/app/services/team.service';
 
 @Component({
