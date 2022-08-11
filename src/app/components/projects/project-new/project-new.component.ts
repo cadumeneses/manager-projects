@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormArray, Validators } from '@angular/forms';
-import { ProjectNewService } from "./project-new.service";
-import { Team } from "src/app/teams/team";
+import { ProjectService } from "src/app/services/project.service";
+import { Team } from "src/app/models/team";
 
 @Component({
   selector: 'app-project-new',
@@ -18,14 +18,13 @@ export class ProjectNewComponent implements OnInit {
 
   _filterBy!: string;
 
-  constructor(private projectNewService: ProjectNewService, private fb: FormBuilder) {
+  constructor(private projectService: ProjectService, private fb: FormBuilder) {
   }
 
   ngOnInit(): void {
-    this.retrieveAll()
+    this.retrieveAllTeam()
   }
-
-
+  
   rgForm = this.fb.group({
     name: ['', Validators.required,],
     team: ['',],
@@ -76,14 +75,14 @@ export class ProjectNewComponent implements OnInit {
       return;
     }
     const payLoad = this.rgForm.value;
-    this.projectNewService.save(payLoad as any).subscribe({
+    this.projectService.save(payLoad as any).subscribe({
       next: project => console.log('Save Project', project),
       error: err => console.log('Error', err)
     });
   }
 
-  retrieveAll(): void {
-    this.projectNewService.retrieveAll().subscribe({
+  retrieveAllTeam(): void {
+    this.projectService.retrieveAllTeam().subscribe({
       next: teams => {
         this._teams = teams;
         this.filteredTeams = this._teams;

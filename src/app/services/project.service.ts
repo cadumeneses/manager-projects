@@ -1,7 +1,8 @@
-import { Project } from "./project";
+import { Project } from "../models/project";
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { Team } from "../models/team";
 
 @Injectable({
     providedIn: 'root'
@@ -11,6 +12,9 @@ export class ProjectService {
 
     private projectUrl: string = 'https://api-new-project-manager.herokuapp.com/projects';
 
+    private teamUrl: string = 'https://api-new-project-manager.herokuapp.com/teams';
+
+
     constructor(private httpClient: HttpClient){ }
 
     retrieveAll(): Observable<Project[]> {
@@ -19,6 +23,10 @@ export class ProjectService {
 
     retrieveById(id: number): Observable<Project> {
         return this.httpClient.get<Project>(`${this.projectUrl}/${id}`);
+    }
+
+    retrieveAllTeam(): Observable<Team[]>{
+        return this.httpClient.get<Team[]>(this.teamUrl);
     }
 
     save(project: Project): Observable<Project> {

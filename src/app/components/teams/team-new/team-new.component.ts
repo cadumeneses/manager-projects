@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
-import { TeamNewService } from './team-new.service';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-team-new',
@@ -9,7 +9,7 @@ import { TeamNewService } from './team-new.service';
 })
 export class TeamNewComponent implements OnInit {
 
-  constructor(private teamNewService: TeamNewService, private fb: FormBuilder) { }
+  constructor(private teamService: TeamService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
@@ -51,7 +51,7 @@ export class TeamNewComponent implements OnInit {
       return;
     }
     const payLoad = this.rgFormTeam.value;
-    this.teamNewService.save(payLoad as any).subscribe({
+    this.teamService.save(payLoad as any).subscribe({
       next: team => console.log('Save team', team),
       error: err => console.log('Error', err)
     });

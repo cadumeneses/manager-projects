@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
-import { Team } from "./team";
+import { Team } from "src/app/models/team";
 
 @Injectable({
     providedIn: 'root'
@@ -24,7 +24,7 @@ export class TeamService {
         if(team.id) {
             return this.httpClient.put<Team>(`${this.teamUrl}/${team.id}`, team)
         }else{
-            return this.httpClient.put<Team>(`${this.teamUrl}`, team)
+            return this.httpClient.post<Team>(`${this.teamUrl}`, team)
         }
     }
 

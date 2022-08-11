@@ -7,15 +7,10 @@
         <div class="bg-secondary-color"
             style="width: 80vw;height: 4rem;display: flex;justify-content: space-around;align-items: center;">
             <div class="btns-new d-flex justify-content-center aling-items-center">
-                <button [routerLink]="['/projects']" class="btn btn-secondary mr-3"><i
+                <button [routerLink]="['/teams']" class="btn btn-secondary mr-3"><i
                         class="fa-solid fa-arrow-left"></i></button>
                 <button [routerLink]="['/teams']" (click)="save()" [disabled]="!rgFormTeam.valid"
                     class="btn btn-success mr-3"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
-                    <div (click)="addMembers()" class="btn"
-                        style="background-color: #f56e28; color: #ffffff; padding-top: .6rem;">
-                        <i class="fa-solid fa-plus"></i>
-                        <label class="ml-3" for="">Membro</label>
-                    </div>
             </div>
         </div>
     </div>
@@ -33,13 +28,33 @@
                 </div>
             </div>
 
+            <div class="d-flex justify-content-center aling-items-center">
+                <div class="col-md-11">
+                    <div class="d-flex justify-content-around aling-items-center my-2"
+                        style="background-color: #ffffff;border: 1px solid #ced4da;border-radius: 0.375rem;">
+                        <h5 class="colors-primary py-3"
+                            style="width: 30rem;height: 3rem; font-weight: 600; font-size: 1.2rem;">Membros da equipe:
+                        </h5>
+                        <div class="py-2">
+                            <div (click)="addMembers()" class="btn"
+                                style="background-color: #f56e28; color: #ffffff; padding-top: .6rem; height: 3rem;"
+                                id="btnAddTask">
+                                <i class="fa-solid fa-plus "></i>
+                                <label class="ml-3">Membro</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <ng-container formArrayName="members" *ngFor="let member of members.controls; let i = index">
 
                 <div [formGroupName]="i" class="d-flex justify-content-center aling-items-center my-2">
-                    <div class="col-md-10">
-                            <div class="form-floating">
-                                <input type="text" formControlName="nameMember" [attr.id]="'member' + i" id="floatingInputGrid" class="form-control">
-                                <label [attr.for]="'member' + i" for="floatingInputGrid"> Membro {{ i }}</label>
+                    <div class="col-md-11">
+                        <div class="form-floating">
+                            <input type="text" formControlName="nameMember" [attr.id]="'member' + i"
+                                id="floatingInputGrid" class="form-control">
+                            <label [attr.for]="'member' + i" for="floatingInputGrid"> Membro {{ i }}</label>
                         </div>
                     </div>
                 </div>

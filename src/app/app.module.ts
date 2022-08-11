@@ -5,11 +5,11 @@ import { RouterModule } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ComponentsModule } from './components/components.module';
+import { ComponentsModule } from './modules/components.module';
 import { CoreModule } from './core/core.module';
 import { Error404Component } from './pages/error-404/error-404.component';
-import { ProjectsModule } from "./projects/projects.module";
-import { TeamsModule } from './teams/teams.module';
+import { ProjectsModule } from "./modules/projects.module";
+import { TeamsModule } from './modules/teams.module';
 
 @NgModule({
   declarations: [

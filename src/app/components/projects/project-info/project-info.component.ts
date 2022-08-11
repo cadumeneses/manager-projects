@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators, FormArray, FormGroup } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Team } from 'src/app/teams/team';
-import { Project } from '../project';
-import { ProjectInfoService } from './project-info.service'
+import { Team } from 'src/app/models/team';
+import { Project } from '../../../models/project';
+import { ProjectService } from 'src/app/services/project.service'
 
 @Component({
   selector: 'app-project-info',
@@ -28,13 +28,13 @@ export class ProjectInfoComponent implements OnInit {
   }
 
   constructor(private activatedRoute: ActivatedRoute,
-    private projectInfoService: ProjectInfoService,
+    private projectService: ProjectService,
     private fb: FormBuilder) { }
 
   ngOnInit(): void {
 
     this.retrieveTeamAll()
-    this.projectInfoService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
+    this.projectService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
       next: project => {
         this.project = project
         this.rgForm = this.fb.group({
@@ -78,14 +78,14 @@ export class ProjectInfoComponent implements OnInit {
 
   save(): void {
     const payLoad = this.rgForm.value;
-    this.projectInfoService.save(payLoad as any).subscribe({
+    this.projectService.save(payLoad as any).subscribe({
       next: project => console.log('Save with sucess', project),
       error: err => console.log('Error:', err)
     });
   }
 
   retrieveTeamAll(): void {
-    this.projectInfoService.retrieveTeamAll().subscribe({
+    this.projectService.retrieveAllTeam().subscribe({
       next: teams => {
         this._teams = teams;
         this.filteredTeams = this._teams;

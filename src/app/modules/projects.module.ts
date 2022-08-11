@@ -2,9 +2,9 @@ import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { RouterModule } from "@angular/router";
-import { ProjectInfoComponent } from "./project-info/project-info.component";
-import { ProjectsListComponent } from "./project-list/projects-list.component";
-import { ProjectNewComponent } from "./project-new/project-new.component";
+import { ProjectInfoComponent } from "../components/projects/project-info/project-info.component";
+import { ProjectsListComponent } from "../components/projects/project-list/projects-list.component";
+import { ProjectNewComponent } from "../components/projects/project-new/project-new.component";
 
 @NgModule({
     declarations: [

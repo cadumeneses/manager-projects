@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { Team } from '../team';
-import { TeamsInfoService } from './teams-info.service';
+import { Team } from '../../../models/team';
+import { TeamService } from 'src/app/services/team.service';
 
 @Component({
   selector: 'app-teams-info',
@@ -19,10 +19,10 @@ export class TeamsInfoComponent implements OnInit {
     return this.rgFormTeam.get('members') as FormArray;
   }
 
-  constructor(private activatedRoute: ActivatedRoute, private teamsInfoService: TeamsInfoService, private fb: FormBuilder) { }
+  constructor(private activatedRoute: ActivatedRoute, private teamService: TeamService, private fb: FormBuilder) { }
 
   ngOnInit(): void {
-    this.teamsInfoService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
+    this.teamService.retrieveById(+this.activatedRoute.snapshot.paramMap.get('id')!).subscribe({
       next: team => {
         this.team = team;
         this.rgFormTeam = this.fb.group({
@@ -54,7 +54,7 @@ export class TeamsInfoComponent implements OnInit {
 
   save(): void{
     const payLoadTeam = this.rgFormTeam.value;
-    this.teamsInfoService.save(payLoadTeam as any).subscribe({
+    this.teamService.save(payLoadTeam as any).subscribe({
       next: team => console.log('Save with sucess', team),
       error: err => console.log('Error:', err)
     })
