@@ -27,6 +27,18 @@ export class NavBarService{
                 routerLink: ['/teams'],
                 class: 'nav-link primary-color',
                 routerLinkActive: 'active'
+            },
+            {
+                label: 'Sign In',
+                routerLink: ['/project/login'],
+                class: 'nav-link primary-color',
+                routerLinkActive: 'active'
+            },
+            {
+                label: 'Sign Up',
+                routerLink: ['/project/singup'],
+                class: 'nav-link primary-color',
+                routerLinkActive: 'active'
             }
         ]
     }
