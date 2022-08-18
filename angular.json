@@ -25,10 +25,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
-            "allowedCommonJsDependencies":[
-              "mapbox-gl"
-            ]
+            "scripts": []
           },
           "configurations": {
             "production": {
