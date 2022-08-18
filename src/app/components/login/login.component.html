@@ -1,14 +1,14 @@
 <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
 
-    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height:3rem">
+    <h2 class="colors-primary d-flex justify-content-center aling-items-center bg-secondary-color" style="height:3rem;font-weight: 600;">
         Login
     </h2>
 
     <div class="d-flex justify-content-center aling-items-center">
-        <div class="wrapper-form form overflow-auto bg-white-color" style="width: 80vw;height: 60vh;">
+        <div class="wrapper-form form overflow-auto bg-white-color" style="width: 30vw;height: 40vh;">
 
-            <div class="d-flex justify-content-center aling-items-center my-2">
-                <div class="col-md-11">
+            <div class="d-flex justify-content-center aling-items-center  mt-5 mb-3">
+                <div class="col-md-10">
                     <div class="form-floating">
                         <input formControlName="email" type="email" class="form-control" id="floatingInputGrid1">
                         <label for="floatingInputGrid1">E-mail</label>
@@ -17,7 +17,7 @@
             </div>
 
             <div class="d-flex justify-content-center aling-items-center">
-                <div class="col-md-11">
+                <div class="col-md-10">
                     <div class="form-floating">
                         <input formControlName="password" type="password" class="form-control" id="floatingInputGrid2">
                         <label for="floatingInputGrid2">Senha</label>
@@ -25,9 +25,9 @@
                 </div>
             </div>
 
-            <div class="d-flex justify-content-center aling-items-center">
+            <div class="d-flex justify-content-center aling-items-center mt-3">
                 <button type="submit" [disabled]="!loginForm.valid"
-                    class="btn btn-success"><i class="fa-solid fa-floppy-disk primary-color"></i></button>
+                    class="btn btn-success">Entrar</button>
             </div>
 
         </div>

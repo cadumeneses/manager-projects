@@ -29,13 +29,13 @@ export class NavBarService{
                 routerLinkActive: 'active'
             },
             {
-                label: 'Sign In',
+                label: 'signIn',
                 routerLink: ['/project/login'],
                 class: 'nav-link primary-color',
                 routerLinkActive: 'active'
             },
             {
-                label: 'Sign Up',
+                label: 'signUp',
                 routerLink: ['/project/singup'],
                 class: 'nav-link primary-color',
                 routerLinkActive: 'active'
